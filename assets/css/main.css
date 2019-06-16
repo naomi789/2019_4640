@@ -4,8 +4,30 @@
 .header {
   overflow: hidden;
   background-color: #BE0026;
-  padding: 20px 10px;
+  padding: 10px 10px;
   margin-bottom: 20px;
+}
+
+.search_or_history {
+  padding: 10px 10px;
+}
+
+#search_box {
+  width: 400px;
+}
+
+.plus_sign {
+  float: right;
+  padding-right: 10px;
+}
+
+div#results {
+    border-bottom: 3px solid #be0026;
+    margin-bottom: 7px;
+}
+
+.one_word {
+  background-color: #CCCCCC;
 }
 
 /* Style the header links */
@@ -41,4 +63,10 @@
   /* .header-right {
     float: none;
   } */
+}
+
+#rectangle{
+    width:400px;
+    height:75px;
+    background:#CCCCCC;
 }
