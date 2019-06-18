@@ -9,8 +9,9 @@
 
 </head>
 <title>J Dict Flashcards</title>
-<link rel = "stylesheet" type = "text/css" href = "assets/css/main.css" />
-<link href="https://fonts.googleapis.com/css?family=Clicker+Script|Open+Sans" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+<link rel="stylesheet" type="text/css" href="assets/css/cards.css" />
+<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
@@ -29,6 +30,29 @@
 		  </div>
 		</div>
     <!-- INDEX CARD -->
+    <!-- flip animation: https://davidwalsh.name/css-flip -->
+    <!-- index card css: https://codepen.io/teddyzetterlund/pen/YPjEzP -->
+    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    	<div class="flipper">
+    		<div class="front card card_front">
+    			<!-- front content -->
+          難しい
+    		</div>
+    		<div class="back card card_back">
+    			<!-- back content -->
+          むずかしい
+    		</div>
+    	</div>
+    </div>
+    <!-- DIRECTIONS -->
+    <div class="directions">
+      Tap anywhere to see back
+      <i class="fa fa-arrow-right"></i>
+    </div>
+    <!-- BUTTONS -->
+    <input type="button" class="incorrect button" value="I knew this word">
+    <input type="button" class="correct button" value="I didn't know this word">
+
 
     <!-- THIRD -->
     <div class="right col-xs-0 col-md-3 left-column"></div>
