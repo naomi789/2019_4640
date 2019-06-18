@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- <meta name="author" content=""> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Japanese dictionary & flashcard app">
 	<meta name="keywords" content="japan, japanese, foreign langauge, study, dictionary, learning, quiz">
 	<link rel="icon" href="/assets/css/favicon.ico">
@@ -15,49 +15,54 @@
 <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
 <body>
-	<!-- FIRST -->
-	<div class="left col-0 col-md-3 left-column"></div>
+<div class="container">
 
-<!-- SECOND -->
-  <div class="main col-12 col-md-6 center">
-		<div class="header">
-		  <a href="/" class="logo"><img class="photo" src="images/logo.PNG" height="100px"></a>
-		  <div class="header-right">
-		    <a href="#login">Login</a>
-		    <a href="#signup">Sign up</a>
-		    <a href="#myvocab">My vocab lists</a>
-				<a href="#" class="fa fa-bars"><span></span></a>
-		  </div>
-		</div>
-    <!-- INDEX CARD -->
-    <!-- flip animation: https://davidwalsh.name/css-flip -->
-    <!-- index card css: https://codepen.io/teddyzetterlund/pen/YPjEzP -->
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-    	<div class="flipper">
-    		<div class="front card card_front">
-    			<!-- front content -->
-          難しい
-    		</div>
-    		<div class="back card card_back">
-    			<!-- back content -->
-          むずかしい
-    		</div>
-    	</div>
+  <div class="row">
+    <div class="col-0 col-md-2"></div>
+    <div class="col-12 col-md-8">
+      <!-- header -->
+      <div class="header">
+  		  <a href="/" class="logo"><img class="photo" src="images/logo.PNG" height="100px"></a>
+  		  <div class="header-right">
+  		    <a href="#login">Login</a>
+  		    <a href="#signup">Sign up</a>
+  		    <a href="#myvocab">My vocab lists</a>
+  				<a href="#" class="fa fa-bars"><span></span></a>
+  		  </div>
+  		</div>
+      <div align="center">
+
+      <!-- INDEX CARD -->
+      <!-- flip animation: https://davidwalsh.name/css-flip -->
+      <!-- index card css: https://codepen.io/teddyzetterlund/pen/YPjEzP -->
+      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+      	<div class="flipper">
+      		<div class="front card card_front">
+      			<!-- front content -->
+            難しい
+      		</div>
+      		<div class="back card card_back">
+      			<!-- back content -->
+            むずかしい
+      		</div>
+      	</div>
+      </div>
+      <!-- DIRECTIONS -->
+      <div class="directions">
+        Tap anywhere to see back
+        <i class="fa fa-arrow-right"></i>
+      </div>
+      <!-- BUTTONS -->
+      <input type="button" class="incorrect button" value="I knew this word">
+      <input type="button" class="correct button" value="I didn't know this word">
+      </div>
     </div>
-    <!-- DIRECTIONS -->
-    <div class="directions">
-      Tap anywhere to see back
-      <i class="fa fa-arrow-right"></i>
-    </div>
-    <!-- BUTTONS -->
-    <input type="button" class="incorrect button" value="I knew this word">
-    <input type="button" class="correct button" value="I didn't know this word">
+    <div class="col-0 col-md-2"></div>
+  </div>
 
-
-    <!-- THIRD -->
-    <div class="right col-0 col-md-3 right-column"></div>
-
+</div>
 </body>
 	<script type="text/javascript"></script>
 </html>
