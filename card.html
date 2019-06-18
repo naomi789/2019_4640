@@ -6,6 +6,11 @@
 	<meta name="description" content="Japanese dictionary & flashcard app">
 	<meta name="keywords" content="japan, japanese, foreign langauge, study, dictionary, learning, quiz">
 	<link rel="icon" href="/assets/css/favicon.ico">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="material/css/ripples.min.css" rel="stylesheet">
+  <link href="material/css/material-wfont.min.css" rel="stylesheet">
+
+  <link href="css/flipper.css" rel="stylesheet">
 
 	<!-- <div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
 
@@ -30,10 +35,52 @@
 				<a href="#" class="fa fa-bars"><span></span></a>
 		  </div>
 		</div>
+    <!-- INDEX CARD -->
+    <!-- https://github.com/Xerdi/Material-Design-Flipper -->
+    <div class="row" id="example-row">
+      <!-- Note the "full-card" class which stands for only one card. Add multiple "full-card" for more cards.  -->
+      <div class="col-xs-12 col-md-4 full-card">
+        <!-- This will be the card that is active. Note that there should only be one card active. -->
+        <div class="flip-card active-card">
+          <div class="card label-info">
+            <!-- The <h6> can also be a <img> which will be centered. -->
+            <h6>1</h6>
+          </div>
+          <!-- This will be the button to trigger an animation. You will have to hook it yourself! -->
+          <a href="javascript:void(0)" class="btn btn-primary btn-fab btn-raised icon-material-replay" id="first"></a>
+          <div class="well">
+            <h1>Card 1</h1>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="card" style="background-color: #F1BF26;color: white;">
+            <h6>2</h6>
+          </div>
+          <div class="well">
+            <h1>Card 2</h1>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="card alert-success">
+            <h6>3</h6>
+          </div>
+          <div class="well">
+            <h1>Card 3</h1>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
     <!-- THIRD -->
     <div class="right col-xs-0 col-md-3 left-column"></div>
 
-  </body>
-  	<script type="text/javascript"></script>
-  </html>
+</body>
+	<script type="text/javascript"></script>
+  <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <script src="material/js/ripples.min.js"></script>
+  <script src="material/js/material.min.js"></script>
+
+  <script src="js/flipper.js"></script>
+</html>
