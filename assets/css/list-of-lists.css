@@ -1,0 +1,44 @@
+.box{
+    background-color: #F1F3F4;
+    height: 42px;
+    width: 800px;
+    margin: 40px;
+    display: table;
+  }
+  
+  .box .box-txt{
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  input.line{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+  }
+  
+  input.line::placeholder{
+    color: #797979;
+    opacity: 1;
+  }
+  
+  input.line:focus{
+    border-bottom: 1px solid #BBF1C4;
+  }
+  
+  .list-of-lists-mods{
+    display: inline-block;
+  }
+  
+  #edit-lists-div{
+    margin: 0 0 0 80em;
+  }
+  
+  #edit-lists-div a:link{
+    color: #00530B;
+  }
+  
+  #edit-lists-div a:visited{
+    color: #00530B;
+  }
