@@ -1,9 +1,10 @@
 @import url("font-awesome.min.css");
 
 * {
-  /* box-sizing: border-box; */
   font-family:'Roboto', sans-serif;
 }
+
+html, body { height: 100%; }
 
 /* Style the header with a grey background and some padding */
 .header {
