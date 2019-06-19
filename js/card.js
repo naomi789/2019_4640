@@ -5,3 +5,7 @@ function clickCard() {
   // get buttons to appear
   document.getElementById("both_buttons").style.visibility = "visible";
 }
+
+function reportAnswer(correct) {
+  console.log(correct);
+}
