@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Japanese dictionary & flashcard app">
-	<meta name="keywords" content="japan, japanese, foreign langauge, study, dictionary, learning, quiz">
-	<link rel="icon" href="/assets/css/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Japanese dictionary & flashcard app">
+  <meta name="keywords" content="japan, japanese, foreign langauge, study, dictionary, learning, quiz">
+  <link rel="icon" href="/assets/css/favicon.ico">
 
 </head>
 <title>J Dict Flashcards</title>
@@ -17,58 +17,59 @@
 
 
 <body>
-<div class="container">
+  <div class="container">
 
-  <div class="row">
-    <div class="col-0 col-md-2"></div>
-    <div class="col-12 col-md-8">
-      <!-- header -->
-      <div class="header">
-  		  <a href="/" class="logo"><img class="photo" src="images/logo.PNG" height="100px"></a>
-  		  <div class="header-right">
-  		    <!-- <a href="#login">Login</a>
+    <div class="row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8">
+        <!-- header -->
+        <div class="header">
+          <a href="/" class="logo"><img class="photo" src="images/logo.PNG" height="100px"></a>
+          <div class="header-right">
+            <!-- <a href="#login">Login</a>
   		    <a href="#signup">Sign up</a> -->
-  		    <a href="#myvocab">My vocab lists</a>
-  				<!-- <a href="#" class="fa fa-bars"><span></span></a> -->
-  		  </div>
-  		</div>
-      <div align="center">
+            <a href="#myvocab">My vocab lists</a>
+            <!-- <a href="#" class="fa fa-bars"><span></span></a> -->
+          </div>
+        </div>
+        <div align="center">
 
-      <!-- INDEX CARD -->
-      <!-- flip animation: https://davidwalsh.name/css-flip -->
-      <!-- index card css: https://codepen.io/teddyzetterlund/pen/YPjEzP -->
-      <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-        <div class="whole_card">
-      	<div class="flipper">
-      		<div class="front card card_front">
-      			<!-- front content -->
-            難しい
-      		</div>
-      		<div class="back card card_back">
-      			<!-- back content -->
-            むずかしい
-      		</div>
-      	</div>
+          <!-- INDEX CARD -->
+          <!-- flip animation: https://davidwalsh.name/css-flip -->
+          <!-- index card css: https://codepen.io/teddyzetterlund/pen/YPjEzP -->
+          <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+            <div class="whole_card">
+              <div class="flipper">
+                <div class="front card card_front">
+                  <!-- front content -->
+                  難しい
+                </div>
+                <div class="back card card_back">
+                  <!-- back content -->
+                  むずかしい
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- DIRECTIONS -->
+          <div class="directions">
+            Tap card to see back
+            <i class="fa fa-arrow-right"></i>
+          </div>
+          <!-- BUTTONS -->
+          <div>
+            <input type="button" class="incorrect button" value="I knew this word">
+            <div>
+            </div>
+            <input type="button" class="correct button" value="I didn't know this word">
+          </div>
         </div>
       </div>
-      <!-- DIRECTIONS -->
-      <div class="directions">
-        Tap card to see back
-        <i class="fa fa-arrow-right"></i>
-      </div>
-      <!-- BUTTONS -->
-      <div>
-        <input type="button" class="incorrect button" value="I knew this word">
-        <div>
-          </div>
-        <input type="button" class="correct button" value="I didn't know this word">
-      </div>
+      <div class="col-0 col-md-2"></div>
     </div>
-    </div>
-    <div class="col-0 col-md-2"></div>
-  </div>
 
-</div>
+  </div>
 </body>
-	<script type="text/javascript"></script>
+<script type="text/javascript"></script>
+
 </html>
