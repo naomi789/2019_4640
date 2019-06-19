@@ -42,10 +42,6 @@
             <div class="card" id="flashcard" onclick="clickCard()">
               <!-- front content -->
               難しい
-              <!-- <div class="back card_back"> -->
-              <!-- back content -->
-              <!-- むずかしい
-                </div> -->
             </div>
           </div>
           <!-- DIRECTIONS -->
@@ -55,10 +51,10 @@
           </div>
           <!-- BUTTONS -->
           <div id="both_buttons">
-            <input type="button" class="correct button" value="I knew this word" onclick="reportAnswer('correct')">
+            <input type="button" class="correct button" value="I knew this word" onclick="reportAnswer(true)">
             <div>
             </div>
-            <input type="button" class="incorrect button" value="I didn't know this word" onclick="reportAnswer('incorrect')">
+            <input type="button" class="incorrect button" value="I didn't know this word" onclick="reportAnswer(false)">
           </div>
         </div>
 

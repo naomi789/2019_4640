@@ -7,5 +7,10 @@ function clickCard() {
 }
 
 function reportAnswer(correct) {
-  console.log(correct);
+  if (correct) {
+    console.log('correct');
+  }
+  else {
+    console.log('nope');
+  }
 }
