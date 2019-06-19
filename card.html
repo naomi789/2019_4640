@@ -39,14 +39,12 @@
           <!-- flip animation: https://davidwalsh.name/css-flip -->
           <!-- index card css: https://codepen.io/teddyzetterlund/pen/YPjEzP -->
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-            <div class="card flipper">
-                <div class="front card_front">
-                  <!-- front content -->
-                  難しい
-                </div>
-                <!-- <div class="back card_back"> -->
-                  <!-- back content -->
-                  <!-- むずかしい
+            <div class="card" id="flashcard" onclick="clickCard()">
+              <!-- front content -->
+              難しい
+              <!-- <div class="back card_back"> -->
+              <!-- back content -->
+              <!-- むずかしい
                 </div> -->
             </div>
           </div>
@@ -56,7 +54,7 @@
             <i class="fa fa-arrow-right"></i>
           </div>
           <!-- BUTTONS -->
-          <div>
+          <div id="both_buttons">
             <input type="button" class="incorrect button" value="I knew this word">
             <div>
             </div>
@@ -65,11 +63,11 @@
         </div>
 
 
-        </div>
-        <div class="col-0 col-md-2"></div>
       </div>
-      <!-- end of trial -->
+      <div class="col-0 col-md-2"></div>
     </div>
+    <!-- end of trial -->
+  </div>
 </body>
 
 </html>
