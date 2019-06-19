@@ -1,8 +1,8 @@
 .box{
     background-color: #F1F3F4;
     height: 42px;
-    width: 800px;
-    margin: 40px;
+    width: 100%;
+    margin: 0 0 40px 0;
     display: table;
   }
   
@@ -16,6 +16,14 @@
     border: none;
     border-bottom: 1px solid #000000;
     outline: none;
+    width: 100%;
+    display: inline;
+  }
+
+  #edit-lists-div{
+    display: inline;
+    
+    
   }
   
   input.line::placeholder{
@@ -27,13 +35,8 @@
     border-bottom: 1px solid #BBF1C4;
   }
   
-  .list-of-lists-mods{
-    display: inline-block;
-  }
+ 
   
-  #edit-lists-div{
-    margin: 0 0 0 80em;
-  }
   
   #edit-lists-div a:link{
     color: #00530B;
@@ -42,3 +45,5 @@
   #edit-lists-div a:visited{
     color: #00530B;
   }
+
+
