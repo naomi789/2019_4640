@@ -1,0 +1,22 @@
+table {
+  border-collapse: collapse;
+}
+
+#search_box {
+  width: 400px;
+}
+.plus_sign {
+  float: right;
+  padding-right: 10px;
+}
+
+div#results {
+  border-bottom: 3px solid #be0026;
+  margin-bottom: 7px;
+  padding: 15px;
+}
+
+.one_word {
+  background-color: #F1F3F4;
+  padding: 2px;
+}
