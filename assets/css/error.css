@@ -1,0 +1,22 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.error .error-message h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 168px;
+  color: #BE0026;
+  text-transform: uppercase;
+}
+
+.error h2 {
+  font-size: 22px;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #222;
+}
+
+.error a {
+  font-weight: 700;
+  color: #39b1cb;
+}
