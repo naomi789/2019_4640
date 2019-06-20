@@ -1,10 +1,12 @@
 @import url("font-awesome.min.css");
 
 * {
-  font-family:'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+}
 
 /* Style the header with a grey background and some padding */
 .header {
@@ -28,9 +30,9 @@ html, body { height: 100%; }
 }
 
 div#results {
-    border-bottom: 3px solid #be0026;
-    margin-bottom: 7px;
-    padding: 15px;
+  border-bottom: 3px solid #be0026;
+  margin-bottom: 7px;
+  padding: 15px;
 }
 
 .one_word {

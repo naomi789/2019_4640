@@ -20,7 +20,7 @@ function createHTML(results) {
     if (results[i]["k_ele"] != null) {
       let keb_list = results[i]["k_ele"][0]["keb"];
       if (keb_list != null) {
-        for(j = 0; j < keb_list.length; j++) {
+        for (j = 0; j < keb_list.length; j++) {
           keb += keb_list[j] + '; ';
         }
       }
@@ -29,7 +29,7 @@ function createHTML(results) {
 
     let reb_list = results[i]["r_ele"][0]["reb"];
     if (reb_list != null) {
-      for(var k = 0; k < reb_list.length; k++) {
+      for (var k = 0; k < reb_list.length; k++) {
         reb += reb_list[k] + '; ';
       }
     }
@@ -37,8 +37,8 @@ function createHTML(results) {
 
     let gloss_list = results[i]["sense"][0]["gloss"];
     if (gloss_list != null) {
-      for(var m = 0; m < gloss_list.length; m++) {
-        gloss += gloss_list[m]  + '; ';
+      for (var m = 0; m < gloss_list.length; m++) {
+        gloss += gloss_list[m] + '; ';
       }
     }
 
@@ -65,14 +65,14 @@ function checkJSON(isJapaneseBool, fake_dictionary, query) {
     for (var word = 0; word < fake_dictionary.length; word++) {
       // check kanji
       let keb_list = results[i]["k_ele"][0]["keb"];
-      for(j = 0; j < keb_list; j++) {
+      for (j = 0; j < keb_list; j++) {
         if (keb_list[j].includes(query)) {
           results.push(keb_list[j]);
         }
       }
       //check reading (hiragana or katakana)
       let reb_list = results[i]["r_ele"][0]["reb"];
-      for(var k = 0; k < reb_list; k++) {
+      for (var k = 0; k < reb_list; k++) {
         results.push(reb_list[k]);
       }
       // https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contains-a-substring-in-javascript
