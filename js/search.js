@@ -7,6 +7,11 @@ function search() {
   isEnglishBool = isEnglish(query);
   console.log("query is English?", isEnglishBool);
 
+  if(isJapaneseBool == false && isEnglishBool == false) {
+    alert("Sorry, this dictionary only has words in English and Japanese");
+    console.log(isJapanese, isEnglish);
+  }
+
   let results = checkJSON(isJapaneseBool, fake_dictionary, query);
   console.log("found ", results.length, "results.");
   let html = createHTML(results);
