@@ -1,12 +1,23 @@
 function search() {
   let query = document.getElementById("search_box").value;
   console.log("starting a search for:", query);
+
   isJapaneseBool = isJapanese(query);
   console.log("query is Japanese?", isJapaneseBool);
-  let results = checkJSON(isJapaneseBool, fake_dictionary, query);
-  console.log("found ", results.length);
-  let html = createHTML(results);
-  document.getElementById("results").innerHTML = html;
+  isEnglishBool = isEnglish(query);
+  console.log("query is English?", isEnglishBool);
+
+  if(isJapaneseBool == false && isEnglishBool == false) {
+    let warning  = "Sorry, '" + query + "' is not in this dictionary. There are only words in English and Japanese.";
+    document.getElementById("results").innerHTML = warning;
+
+  }
+  else {
+    let results = checkJSON(isJapaneseBool, fake_dictionary, query);
+    console.log("found ", results.length, "results.");
+    let html = createHTML(results);
+    document.getElementById("results").innerHTML = html;
+  }
 }
 
 function createHTML(results) {
@@ -15,7 +26,6 @@ function createHTML(results) {
     let keb = "";
     let reb = "";
     let gloss = '';
-
 
     if (results[i]["k_ele"] != null) {
       let keb_list = results[i]["k_ele"][0]["keb"];
@@ -63,7 +73,7 @@ function checkJSON(isJapaneseBool, fake_dictionary, query) {
     // console.log('is japanese', query);
     for (var word = 0; word < fake_dictionary.length; word++) {
       // check kanji
-      let keb_list = results[i]["k_ele"][0]["keb"];
+      let keb_list = results[word]["k_ele"][0]["keb"];
       for (j = 0; j < keb_list; j++) {
         if (keb_list[j].includes(query)) {
           results.push(keb_list[j]);
@@ -93,6 +103,15 @@ function checkJSON(isJapaneseBool, fake_dictionary, query) {
 
 function isJapanese(query) {
   var regex = /[\u3000-\u303F]|[\u3040-\u309F]|[\u30A0-\u30FF]|[\uFF00-\uFFEF]|[\u4E00-\u9FAF]|[\u2605-\u2606]|[\u2190-\u2195]|\u203B/g;
+  if (regex.test(query)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function isEnglish(query) {
+  var regex = /^[a-zA-Z]+$/;
   if (regex.test(query)) {
     return true;
   } else {
