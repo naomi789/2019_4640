@@ -48,8 +48,7 @@ function createHTML(results) {
     html += reb;
     html += '</span></td><td class="gloss"><span>';
     html += gloss;
-    html += '</span></td><td class=""><i class="fa fa-plus-circle plus_sign" href="';
-    html += 'www.google.com"></i></td></tr>';
+    html += '</span></td><td class="add_vocab"><a href="https://www.google.com"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
   }
   html += '</tbody></table>';
   // console.log(html);
