@@ -1,0 +1,29 @@
+.box{
+    background-color: white;
+    height: 34px;
+    width: 100%;
+    margin: 0 0 40px 0;
+    display: table;
+    border-style: solid;
+    border-width: thin;
+  }
+  
+  .box .box-txt{
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  #edit-lists-div{
+    display: inline;
+      
+  }
+  
+  #edit-lists-div a:link{
+    color: #00530B;
+  }
+  
+  #edit-lists-div a:visited{
+    color: #00530B;
+  }
+
+
