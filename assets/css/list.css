@@ -42,3 +42,7 @@
       linear-gradient(180deg, white 3rem, #F0A4A4 calc(3rem), #F0A4A4 calc(3rem + 2px), transparent 1px),
       repeating-linear-gradient(0deg, transparent, transparent 1.5rem, #DDD 1px, #DDD calc(1.5rem + 1px));
   }
+
+  hr{
+      border-top: 1px solid #BE0026;
+  }
