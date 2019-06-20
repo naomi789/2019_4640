@@ -8,14 +8,16 @@ function search() {
   console.log("query is English?", isEnglishBool);
 
   if(isJapaneseBool == false && isEnglishBool == false) {
-    alert("Sorry, this dictionary only has words in English and Japanese");
-    console.log(isJapanese, isEnglish);
-  }
+    let warning  = "Sorry, '" + query + "' is not in this dictionary. There are only words in English and Japanese.";
+    document.getElementById("results").innerHTML = warning;
 
-  let results = checkJSON(isJapaneseBool, fake_dictionary, query);
-  console.log("found ", results.length, "results.");
-  let html = createHTML(results);
-  document.getElementById("results").innerHTML = html;
+  }
+  else {
+    let results = checkJSON(isJapaneseBool, fake_dictionary, query);
+    console.log("found ", results.length, "results.");
+    let html = createHTML(results);
+    document.getElementById("results").innerHTML = html;
+  }
 }
 
 function createHTML(results) {
@@ -24,7 +26,6 @@ function createHTML(results) {
     let keb = "";
     let reb = "";
     let gloss = '';
-
 
     if (results[i]["k_ele"] != null) {
       let keb_list = results[i]["k_ele"][0]["keb"];
