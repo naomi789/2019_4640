@@ -1,5 +1,6 @@
 table {
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
+  border-spacing: 8px 2px;
 }
 
 #search_box {
@@ -18,5 +19,12 @@ div#results {
 
 .one_word {
   background-color: #F1F3F4;
-  padding: 2px;
+}
+
+td {
+  padding: 3px;
+}
+
+tr {
+  border: 5px solid #FFFFFF;
 }
