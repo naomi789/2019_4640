@@ -16,6 +16,10 @@ html, body {
   margin-bottom: 20px;
 }
 
+table {
+  border-collapse: collapse;
+}
+
 .search_or_history {
   padding: 10px 10px;
 }
@@ -36,7 +40,8 @@ div#results {
 }
 
 .one_word {
-  background-color: #CCCCCC;
+  background-color: #F1F3F4;
+  padding: 2px;
 }
 
 /* Style the header links */
