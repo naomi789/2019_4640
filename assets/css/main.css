@@ -30,6 +30,7 @@ html, body { height: 100%; }
 div#results {
     border-bottom: 3px solid #be0026;
     margin-bottom: 7px;
+    padding: 15px;
 }
 
 .one_word {
@@ -66,13 +67,4 @@ div#results {
     display: block;
     text-align: left;
   }
-  /* .header-right {
-    float: none;
-  } */
-}
-
-#rectangle{
-    width:400px;
-    height:75px;
-    background:#CCCCCC;
 }

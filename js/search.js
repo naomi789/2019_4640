@@ -4,9 +4,8 @@ function search() {
   isJapaneseBool = isJapanese(query);
   console.log("query is Japanese?", isJapaneseBool);
   let results = checkJSON(isJapaneseBool, fake_dictionary, query);
-  console.log("found ", results.length, " results");
+  console.log("found ", results.length);
   let html = createHTML(results);
-  console.log("html:", html);
   document.getElementById("results").innerHTML = html;
 }
 
@@ -43,20 +42,14 @@ function createHTML(results) {
       }
     }
 
-
-    // console.log('LOTS', keb_list.length, keb_list, reb_list.length, reb_list, gloss_list.length, gloss_list);
-    // console.log('LESS', keb, reb, gloss);
-
-
-
-
     html += '<tr class="one_word"><td class="keb"><span>'
     html += keb;
     html += '</span></td><td class="reb"><span>';
     html += reb;
     html += '</span></td><td class="gloss"><span>';
     html += gloss;
-    html += '</span></td><td class=""><i class="fa fa-plus-circle plus_sign" href=""></i></td></tr>';
+    html += '</span></td><td class=""><i class="fa fa-plus-circle plus_sign" href="';
+    html += 'www.google.com"></i></td></tr>';
   }
   html += '</tbody></table>';
   // console.log(html);
