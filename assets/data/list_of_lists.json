@@ -1,0 +1,255 @@
+let list_names = ["JLPT N1", "JLPT N2- vocab", "JPN4075 - midterm", "JPN4075 - final"]
+let list_of_lists = {
+  "JLPT N1": [{
+    "ent_seq": ["1007070"],
+    "k_ele": [{
+      "keb": ["それ等"],
+      "ke_pri": ["spec1"]
+    }, {
+      "keb": ["其れ等"]
+    }, {
+      "keb": ["其等"]
+    }],
+    "r_ele": [{
+      "reb": ["それら"],
+      "re_pri": ["spec1"]
+    }],
+    "sense": [{
+      "pos": ["&pn;"],
+      "misc": ["&uk;"],
+      "gloss": ["those (near the second person)"]
+    }]
+  }, {
+    "ent_seq": ["1007080"],
+    "k_ele": [{
+      "keb": ["それ以上"]
+    }],
+    "r_ele": [{
+      "reb": ["それいじょう"]
+    }],
+    "sense": [{
+      "pos": ["&exp;"],
+      "gloss": ["further", "above", "anymore"]
+    }]
+  }, {
+    "ent_seq": ["1008150"],
+    "k_ele": [{
+      "keb": ["つなぎ目"]
+    }, {
+      "keb": ["繋ぎ目"]
+    }],
+    "r_ele": [{
+      "reb": ["つなぎめ"]
+    }],
+    "sense": [{
+      "pos": ["&n;"],
+      "gloss": ["joint", "link", "knot", "tie-together point"]
+    }]
+  }],
+  "JLPT N2- vocab": [{
+    "ent_seq": ["1008670"],
+    "k_ele": [{
+      "keb": ["鳶"]
+    }, {
+      "keb": ["鴟"]
+    }, {
+      "keb": ["鵄"]
+    }],
+    "r_ele": [{
+      "reb": ["とび"]
+    }, {
+      "reb": ["とんび"]
+    }, {
+      "reb": ["トビ"],
+      "re_nokanji": [""]
+    }, {
+      "reb": ["トンビ"],
+      "re_nokanji": [""]
+    }],
+    "sense": [{
+      "pos": ["&n;"],
+      "misc": ["&uk;"],
+      "gloss": ["black kite (Milvus migrans)"]
+    }, {
+      "stagr": ["とび"],
+      "xref": ["鳶職"],
+      "misc": ["&abbr;"],
+      "gloss": ["construction worker", "scaffold erector", "firefighter"]
+    }, {
+      "stagr": ["とんび"],
+      "xref": ["鳶合羽"],
+      "misc": ["&abbr;"],
+      "gloss": ["Inverness cape"]
+    }]
+  }, {
+    "ent_seq": ["1008680"],
+    "r_ele": [{
+      "reb": ["とべ"]
+    }],
+    "sense": [{
+      "pos": ["&n;"],
+      "misc": ["&sl;"],
+      "gloss": ["last (in a contest)"]
+    }]
+  }, {
+    "ent_seq": ["1008700"],
+    "r_ele": [{
+      "reb": ["とぼとぼ"]
+    }],
+    "sense": [{
+      "pos": ["&adv;"],
+      "misc": ["&on-mim;"],
+      "gloss": ["totteringly", "trudgingly"]
+    }]
+  }],
+  "JPN4075 - midterm": [{
+    "ent_seq": ["1008640"],
+    "r_ele": [{
+      "reb": ["とと"]
+    }, {
+      "reb": ["とっと"]
+    }],
+    "sense": [{
+      "pos": ["&n;"],
+      "misc": ["&chn;"],
+      "gloss": ["fishie", "birdie", "chickie"]
+    }]
+  }, {
+    "ent_seq": ["1008660"],
+    "k_ele": [{
+      "keb": ["隣の芝生は青い"]
+    }, {
+      "keb": ["となりの芝生は青い"]
+    }],
+    "r_ele": [{
+      "reb": ["となりのしばふはあおい"]
+    }],
+    "sense": [{
+      "pos": ["&exp;"],
+      "misc": ["&proverb;"],
+      "gloss": ["the grass is always greener on the other side of the fence"]
+    }]
+  }],
+  "JPN4075 - final": [{
+    "ent_seq": ["1008550"],
+    "r_ele": [{
+      "reb": ["ときめき"]
+    }],
+    "sense": [{
+      "pos": ["&n;"],
+      "gloss": ["palpitation", "throbbing"]
+    }]
+  }, {
+    "ent_seq": ["1008560"],
+    "r_ele": [{
+      "reb": ["ときめく"]
+    }],
+    "sense": [{
+      "pos": ["&v5k;", "&vi;"],
+      "gloss": ["to throb", "to flutter", "to palpitate"]
+    }]
+  }, {
+    "ent_seq": ["1008570"],
+    "k_ele": [{
+      "keb": ["所が"],
+      "ke_pri": ["ichi1"]
+    }],
+    "r_ele": [{
+      "reb": ["ところが"],
+      "re_pri": ["ichi1"]
+    }],
+    "sense": [{
+      "pos": ["&conj;"],
+      "misc": ["&uk;"],
+      "gloss": ["even so", "however", "still", "whereupon", "even though", "nevertheless", "on the contrary", "as a matter of fact", "despite"]
+    }]
+  }, {
+    "ent_seq": ["1008580"],
+    "r_ele": [{
+      "reb": ["ところがどっこい"]
+    }],
+    "sense": [{
+      "pos": ["&exp;"],
+      "gloss": ["on the contrary"]
+    }]
+  }, {
+    "ent_seq": ["1008590"],
+    "r_ele": [{
+      "reb": ["として"],
+      "re_pri": ["spec1"]
+    }],
+    "sense": [{
+      "pos": ["&exp;"],
+      "gloss": ["as (i.e. in the role of)", "for (i.e. from the viewpoint of)"]
+    }, {
+      "gloss": ["apart from... (used to change the topic)"]
+    }, {
+      "s_inf": ["before a negative form"],
+      "gloss": ["even (e.g. \"not even a single person\")"]
+    }, {
+      "xref": ["とする・1"],
+      "s_inf": ["after a volitional form"],
+      "gloss": ["thinking that...", "trying to..."]
+    }]
+  }, {
+    "ent_seq": ["1008600"],
+    "r_ele": [{
+      "reb": ["としても"],
+      "re_pri": ["spec1"]
+    }],
+    "sense": [{
+      "pos": ["&prt;"],
+      "gloss": ["assuming ...", "even if ..."]
+    }]
+  }, {
+    "ent_seq": ["1008610"],
+    "r_ele": [{
+      "reb": ["とすると"],
+      "re_pri": ["spec1"]
+    }],
+    "sense": [{
+      "pos": ["&conj;"],
+      "gloss": ["if we make ...", "if we take ...", "if we assume ..."]
+    }]
+  }, {
+    "ent_seq": ["1008620"],
+    "k_ele": [{
+      "keb": ["途轍もない"]
+    }, {
+      "keb": ["途轍も無い"]
+    }],
+    "r_ele": [{
+      "reb": ["とてつもない"]
+    }],
+    "sense": [{
+      "pos": ["&exp;", "&adj-i;"],
+      "misc": ["&uk;"],
+      "gloss": ["extravagant", "absurd", "unbelievable", "preposterous", "unreasonable"]
+    }, {
+      "misc": ["&uk;"],
+      "gloss": ["enormous", "tremendous", "extraordinary", "monumental"]
+    }]
+  }, {
+    "ent_seq": ["1008630"],
+    "k_ele": [{
+      "keb": ["迚も"],
+      "ke_pri": ["ichi1"]
+    }],
+    "r_ele": [{
+      "reb": ["とても"],
+      "re_pri": ["ichi1"]
+    }, {
+      "reb": ["とっても"]
+    }],
+    "sense": [{
+      "pos": ["&adv;"],
+      "misc": ["&uk;"],
+      "s_inf": ["とっても is more emphatic"],
+      "gloss": ["very", "awfully", "exceedingly"]
+    }, {
+      "misc": ["&uk;"],
+      "s_inf": ["before a negative form"],
+      "gloss": ["(not) at all", "by no means", "simply (cannot)"]
+    }]
+  }]
+}
