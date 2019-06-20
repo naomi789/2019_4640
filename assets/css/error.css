@@ -18,5 +18,7 @@
 
 .error a {
   font-weight: 700;
-  color: #39b1cb;
+  color: #BE0026;
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
 }
