@@ -1,14 +1,15 @@
 @import url("font-awesome.min.css");
 
+/* Make all of our pages default to this font */
 * {
   font-family: 'Roboto', sans-serif;
 }
 
+/* This should reset weird things browsers do */
 html, body {
   height: 100%;
 }
 
-/* Style the header with a grey background and some padding */
 .header {
   overflow: hidden;
   background-color: #BE0026;
@@ -16,7 +17,7 @@ html, body {
   margin-bottom: 20px;
 }
 
-/* Style the header links */
+/* Style the links (in the header) */
 .header a {
   float: left;
   color: white;
@@ -28,12 +29,12 @@ html, body {
   text-decoration: underline;
 }
 
-/* Change the background color on mouse-over */
+/* Change the background color on links on hover */
 .header a:hover {
   background-color: black;
 }
 
-/* Float the link section to the right */
+/* Float the link section in the header to the right */
 .header-right {
   float: right;
 }

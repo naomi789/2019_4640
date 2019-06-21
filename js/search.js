@@ -7,12 +7,10 @@ function search() {
   isEnglishBool = isEnglish(query);
   console.log("query is English?", isEnglishBool);
 
-  if(isJapaneseBool == false && isEnglishBool == false) {
-    let warning  = "Sorry, '" + query + "' is not in this dictionary. There are only words in English and Japanese.";
+  if (!isJapaneseBool && !isEnglishBool) {
+    let warning = "Sorry, '" + query + "' is not in this dictionary. There are only words in English and Japanese.";
     document.getElementById("results").innerHTML = warning;
-
-  }
-  else {
+  } else {
     let results = checkJSON(isJapaneseBool, fake_dictionary, query);
     console.log("found ", results.length, "results.");
     let html = createHTML(results);
@@ -35,7 +33,6 @@ function createHTML(results) {
         }
       }
     }
-
 
     let reb_list = results[i]["r_ele"][0]["reb"];
     if (reb_list != null) {
@@ -61,35 +58,34 @@ function createHTML(results) {
     html += '</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
   }
   html += '</tbody></table>';
-  // console.log(html);
   return html;
 }
 
 function checkJSON(isJapaneseBool, fake_dictionary, query) {
-  // console.log(fake_dictionary);
-  // console.log('checkJSON');
   var results = [];
   if (isJapaneseBool) {
-    // console.log('is japanese', query);
     for (var word = 0; word < fake_dictionary.length; word++) {
       // check kanji
-      let keb_list = results[word]["k_ele"][0]["keb"];
-      for (j = 0; j < keb_list; j++) {
-        if (keb_list[j].includes(query)) {
-          results.push(keb_list[j]);
+      if (keb_list != null) {
+        let keb_list = results[word]["k_ele"][0]["keb"];
+        for (j = 0; j < keb_list; j++) {
+          if (keb_list[j].includes(query)) {
+            results.push(keb_list[j]);
+          }
         }
       }
       //check reading (hiragana or katakana)
-      let reb_list = results[i]["r_ele"][0]["reb"];
-      for (var k = 0; k < reb_list; k++) {
-        results.push(reb_list[k]);
+      if (reb_list != null) {
+        let reb_list = results[i]["r_ele"][0]["reb"];
+        for (var k = 0; k < reb_list; k++) {
+          results.push(reb_list[k]);
+        }
       }
-      // https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contains-a-substring-in-javascript
     }
   } else {
     for (var word = 0; word < fake_dictionary.length; word++) {
+      //look inside the glossary of English definitions
       gloss = fake_dictionary[word]['sense'][0]['gloss'];
-      // console.log(gloss);
       for (var definition = 0; definition < gloss.length; definition++) {
         if (gloss[definition].includes(query)) {
           results.push(fake_dictionary[word]);
