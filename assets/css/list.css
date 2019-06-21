@@ -36,8 +36,8 @@
     vertical-align: middle;
     
     box-shadow: 3px 3px 6px rgba(0, 0, 0, .25);
-    height: 6em;
-    width: 10em;
+    height: 5em;
+    width: 100%;
     background-image:
       linear-gradient(180deg, white 3rem, #F0A4A4 calc(3rem), #F0A4A4 calc(3rem + 2px), transparent 1px),
       repeating-linear-gradient(0deg, transparent, transparent 1.5rem, #DDD 1px, #DDD calc(1.5rem + 1px));
@@ -45,4 +45,9 @@
 
   hr{
       border-top: 1px solid #BE0026;
+  }
+
+  .left-arrow{
+    margin-right: 3.1em;
+    
   }

@@ -35,15 +35,36 @@
     border-bottom: 1px solid #BBF1C4;
   }
   
- 
-  
-  
-  #edit-lists-div a:link{
-    color: #00530B;
-  }
-  
-  #edit-lists-div a:visited{
-    color: #00530B;
-  }
 
+#new-list-box{
+  background-color: #BBF1C4;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, .25);
+}
 
+#new-list-input-box{
+  background-color: white;
+  border: 1px solid #BE0026;
+}
+
+.name-input-box{
+  margin-left: 3px;
+  display: inline;
+}
+
+#new-list-input-row{
+  display: none;
+}
+
+#new-list-button-row{
+  display: none;
+}
+
+#edit-button{
+  background-color: white;
+  color: #00530B;
+  border: none;
+}
+
+#edit-button:hover{
+  background-color: black;
+}
