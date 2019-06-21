@@ -7,12 +7,11 @@ function search() {
   isEnglishBool = isEnglish(query);
   console.log("query is English?", isEnglishBool);
 
-  if(isJapaneseBool == false && isEnglishBool == false) {
-    let warning  = "Sorry, '" + query + "' is not in this dictionary. There are only words in English and Japanese.";
+  if (isJapaneseBool == false && isEnglishBool == false) {
+    let warning = "Sorry, '" + query + "' is not in this dictionary. There are only words in English and Japanese.";
     document.getElementById("results").innerHTML = warning;
 
-  }
-  else {
+  } else {
     let results = checkJSON(isJapaneseBool, fake_dictionary, query);
     console.log("found ", results.length, "results.");
     let html = createHTML(results);
