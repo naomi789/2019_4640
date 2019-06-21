@@ -7,6 +7,8 @@
     border-style: solid;
     border-width: thin;
   }
+
+
   
   .box .box-txt{
     display: table-cell;
@@ -48,6 +50,10 @@
   }
 
   .left-arrow{
-    margin-right: 3.1em;
+    margin-right: 2.7em;
     
+  }
+
+  .mini-flash-btn{
+    border: none;
   }

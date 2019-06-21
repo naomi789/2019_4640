@@ -64,6 +64,8 @@ function newList(){
     
     hide(new_list_button);
     new_list_input.style.display = "flex";
+    inputField = document.getElementById("list-name-input");
+    inputField.focus();
 }
 
 
