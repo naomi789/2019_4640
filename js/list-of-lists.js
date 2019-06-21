@@ -7,8 +7,8 @@ function editLists(){
         new_list_button.style.display = "flex";
     }
     else{
-        new_list_button.style.display = "none";
-        new_list_input.style.display = "none";
+        hide(new_list_button);
+        hide(new_list_input);
         edit_button.innerHTML = "EDIT";
     }
 }
@@ -17,8 +17,8 @@ function editLists(){
 function newList(){
     new_list_button = document.getElementById("new-list-button-row");
     new_list_input = document.getElementById("new-list-input-row");
-
-    new_list_button.style.display = "none";
+    
+    hide(new_list_button);
     new_list_input.style.display = "flex";
 }
 
@@ -61,8 +61,9 @@ function submitNewList(){
     containerDiv = (document.getElementsByClassName("container"))[0];
     containerDiv.appendChild(parentDiv);
 
-    new_list_input.style.display = "none";
+    hide(new_list_input);
     new_list_button.style.display = "flex";
 
-    console.log(parentDiv);
 }
+
+const hide = element => {element.style.display = "none";}
