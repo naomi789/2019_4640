@@ -17,5 +17,12 @@ https://gist.github.com/ryanmcgrath/982242
 5. Regex to check if input is English:
 https://stackoverflow.com/questions/2266088/how-do-i-verify-that-a-string-is-in-english
 
+6. How to update AWS EC2 instance:
+https://askubuntu.com/questions/449032/29-packages-can-be-updated-how
+https://askubuntu.com/questions/187071/how-do-i-shut-down-or-reboot-from-a-terminal#187080
+
 ## People who helped us:
 1. Brock showed us that !isJapanese is not the same as !isJapaneseBool (the first is a function and the second is a boolean). I probably spend 30 minutes on that, entirely stuck!
+
+
+
