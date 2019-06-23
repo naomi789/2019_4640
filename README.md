@@ -30,5 +30,6 @@ https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_onclick_html
 8. How to see if a string contains a string:
 https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contains-a-substring-in-javascript
 
+9. Stuff for .gitignore file: https://www.gitignore.io/
 ## People who helped us:
 1. Brock showed us that !isJapanese is not the same as !isJapaneseBool (the first is a function and the second is a boolean). I probably spend 30 minutes on that, entirely stuck!
