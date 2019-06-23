@@ -40,7 +40,26 @@
 					<!-- show search results -->
 					<div id="results">
 						<!-- this is where js inserts the results -->
+						let query = 'to';
 						$conn;
+						<?php
+      						$sql = "SELECT * FROM brief_result WHERE keb LIKE '" + query + "%' OR reb LIKE '" + query + "%';";
+      						$result = mysqli_query($conn, $sql);
+      						$resultCheck = mysqli_num_rows($result);
+
+      						if ($resultCheck > 0) {
+								while ($row = mysqli_fetch_assoc()) {
+									echo $row[];
+								}
+							}
+						?>
+<!--						if Japanese:
+            let query = "SELECT * FROM brief_result WHERE keb LIKE '" + req.query.search + "%' OR reb LIKE '" + req.query.search + "%'";
+
+							if English:
+			let query = "SELECT * FROM brief_result WHERE gloss_def LIKE '" + req.query.search + "%'";
+-->
+
 					</div>
 				</div>
 

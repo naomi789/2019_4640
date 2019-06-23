@@ -61,6 +61,11 @@ function createHTML(results) {
   return html;
 }
 
+function checkSQL(isJapaneseBool, fake_dictionary, query) {
+
+}
+
+
 function checkJSON(isJapaneseBool, fake_dictionary, query) {
   var results = [];
   if (isJapaneseBool) {
