@@ -37,5 +37,17 @@ https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contai
 ## How to get mysql DB working:
 '''
 sudo apt-get install mysql-server
+//struggled a ton to get various things working
+mysql -h 127.0.0.1 -P 3306 -u root
+'''
 
+Then, in MySQL:
+'''
+SOURCE create.sql; // this is in the mysql folder
+SOURCE insert.sql;
+USE main_db;
+//To verify things were actually created/inserted, try:
+SHOW TABLES;
+DESCRIBE [insert table name here];
+SELECT * FROM [insert table name here];
 '''
