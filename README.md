@@ -2,7 +2,7 @@
 Summer project in web development class
 
 ## Resources we found helpful:
-0. Although "r_ele", "reb", "k_ele", and "keb" all seem like weird variable names, these are standardized in the community of ~200 active computer scientists who use Jim Breen's Japanese dictionay. 'R' stands for 'reading' and 'K' stands for 'kanji'. More information is available at: 
+0. Although "r_ele", "reb", "k_ele", and "keb" all seem like weird variable names, these are standardized in the community of ~200 active computer scientists who use Jim Breen's Japanese dictionay. 'R' stands for 'reading' and 'K' stands for 'kanji'. More information is available at:
 https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project
 
 1. CSS to make the index card look cute:
@@ -33,3 +33,9 @@ https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contai
 9. Stuff for .gitignore file: https://www.gitignore.io/
 ## People who helped us:
 1. Brock showed us that !isJapanese is not the same as !isJapaneseBool (the first is a function and the second is a boolean). I probably spend 30 minutes on that, entirely stuck!
+
+## How to get mysql DB working:
+'''
+sudo apt-get install mysql-server
+
+'''
