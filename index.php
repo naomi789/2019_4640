@@ -40,55 +40,31 @@
 					<div id="results">
 						<!-- this is where js inserts the results -->
 						<?php
-						// echo "SELECT * FROM brief_result WHERE keb LIKE '" + $query + "%' OR reb LIKE '" + $query + "%'"; -->
-						/*************************/
-						/** get data **/
-						function selectData()
-						{
-						   require('connect-db.php');
-							 $db = "main_db"; //i thought that var would come in from the file
+							require('connect-db.php');
+							function selectData()
+							{
+								 $somequery = "a";
+							   require('connect-db.php');
 
-						   // Excute a SQL statement that doesn't have params
-						   $query = "SELECT * FROM JMdict";
-						   $statement = $db->prepare($query);
-							 echo $query;
+								 // $query = "SELECT * FROM brief_result WHERE keb LIKE '$somequery%' OR reb LIKE '$somequery%'";
+								 $query = "SELECT * FROM brief_result WHERE gloss_def LIKE '$somequery%'";
 
-						   $statement->execute();
-							 echo $query;
+							   $statement = $db->prepare($query);
+								 // $statement->bindValue(':somequery', $somequery);
+							   $statement->execute();
 
-						   // fetchAll() returns an array for all of the rows in the result set
-						   $results = $statement->fetchAll();
+							   // fetchAll() returns an array for all of the rows in the result set
+							   $results = $statement->fetchAll();
 
-						   // closes the cursor and frees the connection to the server so other SQL statements may be issued
-						   $statement->closecursor();
+							   // closes the cursor and frees the connection to the server so other SQL statements may be issued
+							   $statement->closecursor();
 
-						   foreach ($results as $result)
-						   {
-						      echo $result['ent_seq'] . ":" . $result['keb'] . "<br/>";
-						   }
-
-
-						   // Execute a SQL statement that has a param, use a colon followed by a param name
-						   $someid = "id1";
-						   $query = "SELECT * FROM courses WHERE test_id = :someid";
-						   $statement = $db->prepare($query);
-						   $statement->bindValue(':someid', $someid);
-						   $statement->execute();
-
-						   // fetchAll() returns an array for all of the rows in the result set
-						   $results = $statement->fetchAll();
-
-						   // closes the cursor and frees the connection to the server so other SQL statements may be issued
-						   $statement->closecursor();
-
-						   foreach ($results as $result)
-						   {
-						      echo "select a row where courseID=id1 --->" . $result['courseID'] . ":" . $result['course_desc'] . "<br/>";
-						   }
-
-						// a SELECT statement returns a result set in the PDOStatement object
-						}
-						selectData()
+							   foreach ($results as $result)
+							   {
+							      echo $result['ent_seq'] . ":" . $result['gloss_def'] . "<br/>";
+							   }
+							}
+						selectData();
 						?>
 					</div>
 				</div>
