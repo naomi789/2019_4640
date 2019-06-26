@@ -51,7 +51,7 @@
 
 									$somequery = $_POST['value'];
 
-									echo "query currently is '" . $somequery . "'";
+									// echo "query currently is '" . $somequery . "'";
 								  require('connect-db.php');
 
 									$query = "SELECT * FROM brief_result WHERE keb LIKE '$somequery%' OR reb LIKE '$somequery%'";
@@ -66,13 +66,21 @@
 								  // closes the cursor and frees the connection to the server so other SQL statements may be issued
 								  $statement->closecursor();
 
-									echo '<table><tbody>';
-								  foreach ($results as $result)
-								  {
-										echo '<tr class="one_word"><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
-										'</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
-								  }
-									echo '</tbody></table>';
+									if (count($results) == 0)
+									{
+										echo 'We didn\'t find "' . $somequery . '" in our dictionary. Please check your spelling or try a synonym!!';
+									}
+									else
+									{
+										echo '<table><tbody>';
+										foreach ($results as $result)
+										{
+											echo '<tr class="one_word"><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
+											'</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
+										}
+										echo '</tbody></table>';
+									}
+
 							 }
 							}
 						selectData();
