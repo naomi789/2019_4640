@@ -48,31 +48,31 @@
 								if ($_SERVER['REQUEST_METHOD'] === 'POST')
 								{
 
+
 									$somequery = $_POST['value'];
 
 									echo "query currently is '" . $somequery . "'";
-								   require('connect-db.php');
+								  require('connect-db.php');
 
-									 $query = "SELECT * FROM brief_result WHERE keb LIKE '$somequery%' OR reb LIKE '$somequery%'";
-									 $query = "SELECT * FROM brief_result WHERE gloss_def LIKE '$somequery%'";
+									$query = "SELECT * FROM brief_result WHERE keb LIKE '$somequery%' OR reb LIKE '$somequery%'";
+									$query = "SELECT * FROM brief_result WHERE gloss_def LIKE '$somequery%'";
 
-								   $statement = $db->prepare($query);
-									 // $statement->bindValue(':somequery', $somequery);
-								   $statement->execute();
+								  $statement = $db->prepare($query);
+									// $statement->bindValue(':somequery', $somequery);
+								  $statement->execute();
 
-								   // fetchAll() returns an array for all of the rows in the result set
-								   $results = $statement->fetchAll();
+								  // fetchAll() returns an array for all of the rows in the result set
+								  $results = $statement->fetchAll();
+								  // closes the cursor and frees the connection to the server so other SQL statements may be issued
+								  $statement->closecursor();
 
-								   // closes the cursor and frees the connection to the server so other SQL statements may be issued
-								   $statement->closecursor();
-
-									 echo '<table><tbody>';
-								   foreach ($results as $result)
-								   {
-										 echo '<tr class="one_word"><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
-										 '</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
-								   }
-									 echo '</tbody></table>';
+									echo '<table><tbody>';
+								  foreach ($results as $result)
+								  {
+										echo '<tr class="one_word"><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
+										'</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
+								  }
+									echo '</tbody></table>';
 							 }
 							}
 						selectData();
