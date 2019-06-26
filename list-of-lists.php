@@ -12,41 +12,149 @@
 </head>
 
 <body>
+
   <div class="container">
+    <!--Row 1-->
     <div class="row">
       <div class="col-0 col-md-2"></div>
-
       <div class="col-12 col-md-8">
-        <!-- header -->
         <div class="header">
           <a href="/" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
           <div class="header-right">
+            <!-- <a href="#login">Login</a>
+                    <a href="#signup">Sign up</a> -->
             <a href="index.html">Dictionary</a>
+            <!-- <a href="#" class="fa fa-bars"><span></span></a> -->
           </div>
         </div>
+      </div>
+      <div class="col-0 col-md-2"></div>
+    </div>
+    <!--Row 2-->
+    <div class="row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-3 col-md-3"><input type="text" class="line" placeholder="Type to filter"></div>
+      <div class="col-6 col-md-4"></div>
+      <div class="col-3 col-md-1" id="edit-lists-div"><button id="edit-button" onclick="editLists()">EDIT</button></div>
+      <div class="col-0 col-md-2"></div>
+    </div>
+    <br />
 
-        <!-- DISPLAY FILTER, EDIT BUTTON-->
-        <div class="row">
-          <input type="text" class="line" placeholder="Type to filter">
-          <button id="edit-button" class="edit-lists-div" onclick="editLists()">EDIT</button>
-        </div>
+    <!--New list input row (hidden by default)-->
+    <div class="row" id="new-list-input-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8" align="center">
+        <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input class="box-txt name-input-box" id="list-name-input"></input>
+         <button onclick="submitNewList()">Create</button></div>
+      </div>
+      <div class="col-0 col-md-2"></div>
+    </div>
 
-        <!-- ADD NEW LIST HERE -->
-        <div class="row" id="new-list-input-row">
-          <div class="box" id="new-list-input-box"><label>Enter list name: </label><input class="box-txt name-input-box" id="list-name-input"></input>
-            <button onclick="submitNewList()">Create</button></div>
-        </div>
+    <!--New list button row (hidden by default) -->
+    <div class="row" id="new-list-button-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8" align="center">
+        <button onclick="newList()" class="box" id="new-list-box">Create new list</button>
+      </div>
+      <div class="col-0 col-md-2"></div> 
+    </div>
+    <!--List rows-->
+<!--  
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">TOEFL Exam Prep</span></a></div>
+      </div>
+      <div class="third-child col-1 col-md-2">
+        <button class="delete-button" onclick="deleteList(this)">
+            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+        </button>
+      </div>
+      <div class="fourth-child col-1 col-md-2"></div>
+    </div>
 
-        <!-- DISPLAY LISTS -->
-        <div class="box">
-          <a class="list_name" href="list.html">
-            <!-- <span class="box-txt"> -->
-              TOEFL Exam Prep
-            <!-- </span> -->
-          </a>
-        </div>
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N1 Prep</span></a></div>
+      </div>
+      <div class="third-child col-1 col-md-2">
+        <button class="delete-button" onclick="deleteList(this)">
+            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+        </button>
+      </div>
+      <div class="fourth-child col-1 col-md-2"></div>
+    </div>
+    
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">My favorite words</span></a></div>
+      </div>
+      <div class="third-child col-1 col-md-2">
+        <button class="delete-button" onclick="deleteList(this)">
+            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+        </button>
+      </div>
+      <div class="fourth-child col-1 col-md-2"></div>
+    </div>
 
-        <?php
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N2 Prep</span></a></div>
+      </div>
+      <div class="third-child col-1 col-md-2">
+        <button class="delete-button" onclick="deleteList(this)">
+            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+        </button>
+      </div>
+      <div class="fourth-child col-1 col-md-2"></div>
+    </div>
+
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N3 Prep</span></a></div>
+      </div>
+      <div class="third-child col-1 col-md-2">
+        <button class="delete-button" onclick="deleteList(this)">
+            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+        </button>
+      </div>
+      <div class="fourth-child col-1 col-md-2"></div>
+    </div>
+
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N4 Prep</span></a></div>
+      </div>
+      <div class="third-child col-1 col-md-2">
+        <button class="delete-button" onclick="deleteList(this)">
+            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+        </button>
+      </div>
+      <div class="fourth-child col-1 col-md-2"></div>
+    </div>
+
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N5 Prep</span></a></div>
+      </div>
+      <div class="third-child col-1 col-md-2">
+        <button class="delete-button" onclick="deleteList(this)">
+            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+        </button>
+      </div>
+      <div class="fourth-child col-1 col-md-2"></div>
+    </div> -->
+
+    <div class="row list-row">
+      <div class="col-0 col-md-2"></div>
+      <div class="second-child col-11 col-md-8" align="center">
+      <?php
           // require('connect-db.php');
           function loadLists()
           {
@@ -66,7 +174,7 @@
               foreach ($results as $result)
               {
                 echo '<div class="box">
-                  <a class="list_name" href="list.html&listname=' . $result['list_name'] . '">'
+                  <a class="list_name" href="list.php&listname=' . $result['list_name'] . '">'
                     . $result['list_name'] .
                     '</a>
                 </div>';
@@ -80,14 +188,15 @@
           }
           loadLists();
         ?>
-
       </div>
+      <div class="fourth-child col-1 col-md-2"></div>
     </div>
 
+
+
   </div>
-  <div class="col-0 col-md-2"></div>
-  </div>
-  </div>
+
+
 
   <script type="text/javascript" src="js/list-of-lists.js"></script>
   <script type="text/javascript" src="assets/data/medium_dict.json"></script>
