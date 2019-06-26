@@ -32,9 +32,10 @@
 
 				<!-- search bar and button -->
 				<div align="center">
-					<input type="search" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus">
+					<form method="post" action="">
+					<input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus">
 					<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
-
+					</form>
 					<!-- show list of previous queries here OR -->
 					<!-- show search results -->
 					<div id="results">
@@ -43,7 +44,7 @@
 							require('connect-db.php');
 							function selectData()
 							{
-								 $somequery = "a";
+								 $somequery = $_POST['value'];
 							   require('connect-db.php');
 
 								 // $query = "SELECT * FROM brief_result WHERE keb LIKE '$somequery%' OR reb LIKE '$somequery%'";
@@ -59,10 +60,13 @@
 							   // closes the cursor and frees the connection to the server so other SQL statements may be issued
 							   $statement->closecursor();
 
+								 echo '<table><tbody>';
 							   foreach ($results as $result)
 							   {
-							      echo $result['ent_seq'] . ":" . $result['gloss_def'] . "<br/>";
+									 echo '<tr class="one_word"><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
+									 '</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
 							   }
+								 echo '</tbody></table>';
 							}
 						selectData();
 						?>
