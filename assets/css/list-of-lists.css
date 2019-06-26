@@ -1,3 +1,5 @@
+
+/* STUFF FROM LUKE */
 .box{
     background-color: #F1F3F4;
     height: 42px;
@@ -5,36 +7,18 @@
     margin: 0 0 40px 0;
     display: table;
   }
-  
+
   .box .box-txt{
     display: table-cell;
     vertical-align: middle;
   }
-  
-  input.line{
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid #000000;
-    outline: none;
-    width: 100%;
-    display: inline;
-  }
 
   #edit-lists-div{
     display: inline;
-    
-    
+
+
   }
-  
-  input.line::placeholder{
-    color: #797979;
-    opacity: 1;
-  }
-  
-  input.line:focus{
-    border-bottom: 1px solid #BBF1C4;
-  }
-  
+
 
 #new-list-box{
   background-color: #BBF1C4;
@@ -59,19 +43,11 @@
   display: none;
 }
 
-#edit-button{
-  background-color: white;
-  color: #00530B;
-  border: none;
-}
 
-#edit-button:hover{
-  background-color: black;
-}
 
 
 .delete-button{
-  
+
   background-color: #BE0026;
   border: none;
   color: white;
@@ -86,4 +62,54 @@
 
 .third-child{
   display: none;
+}
+
+
+/* NEW ONES */
+/* for querying/filtering the lists */
+input.line{
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #000000;
+  outline: none;
+  /* width: 100%; */
+  display: inline;
+}
+
+input.line::placeholder{
+  color: #797979;
+  opacity: 1;
+}
+
+input.line:focus{
+  border-bottom: 1px solid #BBF1C4;
+}
+
+/* for the edit button */
+#edit-button{
+  background-color: white;
+  color: #00530B;
+  border: none;
+  float:right;
+}
+
+#edit-button:hover{
+  background-color: black;
+  color: #FFFFFF;
+}
+
+.one_list {
+  background-color: #F1F3F4;
+  height: 42px;
+  width: 100%;
+  margin: 0 0 40px 0;
+  display: table;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.list_name {
+  vertical-align: middle;
+  display: table-cell;
+  color: black;
 }
