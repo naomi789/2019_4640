@@ -49,17 +49,17 @@
 							   require('connect-db.php');
 
 								 // $query = "SELECT * FROM brief_result WHERE keb LIKE '$somequery%' OR reb LIKE '$somequery%'";
-								 $query = "SELECT * FROM brief_result WHERE gloss_def LIKE '$somequery%'";
-
-							   $statement = $db->prepare($query);
-								 // $statement->bindValue(':somequery', $somequery);
-							   $statement->execute();
-
-							   // fetchAll() returns an array for all of the rows in the result set
-							   $results = $statement->fetchAll();
-
-							   // closes the cursor and frees the connection to the server so other SQL statements may be issued
-							   $statement->closecursor();
+								 // $query = "SELECT * FROM brief_result WHERE gloss_def LIKE '$somequery%'";
+								 //
+							   // $statement = $db->prepare($query);
+								 // // $statement->bindValue(':somequery', $somequery);
+							   // $statement->execute();
+								 //
+							   // // fetchAll() returns an array for all of the rows in the result set
+							   // $results = $statement->fetchAll();
+								 //
+							   // // closes the cursor and frees the connection to the server so other SQL statements may be issued
+							   // $statement->closecursor();
 
 								 // echo '<table><tbody>';
 							   // foreach ($results as $result)
