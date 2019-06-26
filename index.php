@@ -26,7 +26,7 @@
 				<div class="header">
 					<a href="/" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
 					<div class="header-right">
-						<a href="list-of-lists.html">My vocab lists</a>
+						<a href="list-of-lists.php">My vocab lists</a>
 					</div>
 				</div>
 
