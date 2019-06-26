@@ -40,82 +40,49 @@
 					<div id="results">
 						<!-- this is where js inserts the results -->
 						<?php
-						function OpenCon()
- 						{
-							$dbhost = "127.0.0.1";
-							$dbuser = "root";
-							$dbpass = "password";
-							$db = "main_db";
+						// echo "SELECT * FROM brief_result WHERE keb LIKE '" + $query + "%' OR reb LIKE '" + $query + "%'"; -->
+						/*************************/
+						/** get data **/
+						function selectData()
+						{
+						   require('connect-db.php');
+						   // Excute a SQL statement that doesn't have params
+						   $query = "SELECT * FROM list";
+						   $statement = $db->prepare($query);
+						   $statement->execute();
 
-							$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-							// echo "did we just connect??";
-							$query = 'hi';
-							echo "SELECT * FROM brief_result WHERE keb LIKE '" + $query + "%' OR reb LIKE '" + $query + "%'";
-						  return $conn;
-					  }
+						   // fetchAll() returns an array for all of the rows in the result set
+						   $results = $statement->fetchAll();
 
-					 function CloseCon($conn)
-					  {
-					  	$conn -> close();
-					  }
+						   // closes the cursor and frees the connection to the server so other SQL statements may be issued
+						   $statement->closecursor();
 
-					$conn = OpenCon();
-					 CloseCon($conn);
+						   foreach ($results as $result)
+						   {
+						      echo $result['courseID'] . ":" . $result['course_desc'] . "<br/>";
+						   }
 
-					 <?php
-/*************************/
-/** get data **/
-// function selectData()
-// {
-//    require('connect-db.php');
 
-   // To prepare a SQL statement, use the prepare() method of the PDO object
-   //    syntax:   prepare(sql_statement)
+						   // Execute a SQL statement that has a param, use a colon followed by a param name
+						   $someid = "id1";
+						   $query = "SELECT * FROM courses WHERE test_id = :someid";
+						   $statement = $db->prepare($query);
+						   $statement->bindValue(':someid', $someid);
+						   $statement->execute();
 
-   // To execute a SQL statement, use the bindValue() method of the PDO statement object
-   // to bind the specified value to the specified param in the prepared statement
-   //    syntax:   bindValue(param, value)
-   // then use the execute() method to execute the prepared statement
+						   // fetchAll() returns an array for all of the rows in the result set
+						   $results = $statement->fetchAll();
 
-//    // Excute a SQL statement that doesn't have params
-//    $query = "SELECT * FROM courses";
-//    $statement = $db->prepare($query);
-//    $statement->execute();
-//
-//    // fetchAll() returns an array for all of the rows in the result set
-//    $results = $statement->fetchAll();
-//
-//    // closes the cursor and frees the connection to the server so other SQL statements may be issued
-//    $statement->closecursor();
-//
-//    foreach ($results as $result)
-//    {
-//       echo $result['courseID'] . ":" . $result['course_desc'] . "<br/>";
-//    }
-//
-//
-//    // Execute a SQL statement that has a param, use a colon followed by a param name
-//    $someid = "id1";
-//    $query = "SELECT * FROM courses WHERE test_id = :someid";
-//    $statement = $db->prepare($query);
-//    $statement->bindValue(':someid', $someid);
-//    $statement->execute();
-//
-//    // fetchAll() returns an array for all of the rows in the result set
-//    $results = $statement->fetchAll();
-//
-//    // closes the cursor and frees the connection to the server so other SQL statements may be issued
-//    $statement->closecursor();
-//
-//    foreach ($results as $result)
-//    {
-//       echo "select a row where courseID=id1 --->" . $result['courseID'] . ":" . $result['course_desc'] . "<br/>";
-//    }
-//
-// // a SELECT statement returns a result set in the PDOStatement object
-// }
-// ?>
+						   // closes the cursor and frees the connection to the server so other SQL statements may be issued
+						   $statement->closecursor();
 
+						   foreach ($results as $result)
+						   {
+						      echo "select a row where courseID=id1 --->" . $result['courseID'] . ":" . $result['course_desc'] . "<br/>";
+						   }
+
+						// a SELECT statement returns a result set in the PDOStatement object
+						}
 						?>
 					</div>
 				</div>
