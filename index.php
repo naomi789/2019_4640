@@ -46,10 +46,15 @@
 						function selectData()
 						{
 						   require('connect-db.php');
+							 $db = "main_db"; //i thought that var would come in from the file
+
 						   // Excute a SQL statement that doesn't have params
-						   $query = "SELECT * FROM list";
+						   $query = "SELECT * FROM JMdict";
 						   $statement = $db->prepare($query);
+							 echo $query;
+
 						   $statement->execute();
+							 echo $query;
 
 						   // fetchAll() returns an array for all of the rows in the result set
 						   $results = $statement->fetchAll();
@@ -59,7 +64,7 @@
 
 						   foreach ($results as $result)
 						   {
-						      echo $result['courseID'] . ":" . $result['course_desc'] . "<br/>";
+						      echo $result['ent_seq'] . ":" . $result['keb'] . "<br/>";
 						   }
 
 
@@ -83,6 +88,7 @@
 
 						// a SELECT statement returns a result set in the PDOStatement object
 						}
+						selectData()
 						?>
 					</div>
 				</div>
