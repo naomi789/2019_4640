@@ -47,7 +47,7 @@
         </div>
 
         <?php
-          require('connect-db.php');
+          // require('connect-db.php');
           function loadLists()
           {
             require('connect-db.php');
@@ -66,7 +66,7 @@
               foreach ($results as $result)
               {
                 echo '<div class="box">
-                  <a class="list_name" href="list.html&listname=' . $result['list_name'] . '">' 
+                  <a class="list_name" href="list.html&listname=' . $result['list_name'] . '">'
                     . $result['list_name'] .
                     '</a>
                 </div>';
