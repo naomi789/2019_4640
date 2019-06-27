@@ -30,7 +30,7 @@
     <!--Row 2-->
     <div class="row">
       <div class="col-0 col-md-2"></div>
-      <div class="col-3 col-md-3"><input type="text" class="line" placeholder="Type to filter"></div>
+      <div class="col-3 col-md-3"></div>
       <div class="col-6 col-md-4"></div>
       <div class="col-3 col-md-1" id="edit-lists-div"><button id="edit-button" onclick="editLists()">EDIT</button></div>
       <div class="col-0 col-md-2"></div>
