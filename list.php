@@ -79,77 +79,14 @@
 		</div>
 		<!--Row 7-->
 		<br />
-        <div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">つなぎ目</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">手こずる</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">とき</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">ときめく</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">とぼとぼ</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">それ以上</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">所が</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">隣の芝生は青い</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-		</div>
-		<div class="row">
-                <div class="col-0 col-md-3"></div>
-                <div class="col-12 col-md-6" align="center">
-                    <div class="box"><span class="box-txt">ですから</span></div>
-                </div>
-                <div class="col-0 col-md-3"></div>
-        </div>
-
 
     <?php
         if ($_SERVER['REQUEST_METHOD'] === 'GET')
         {
           require('connect-db.php');
-          $somequery = $_GET['value'];
-          $query = "SELECT * FROM words_in_lists WHERE list_name = " + "'" + $somequery + "'";
+          $somequery = $_GET['listname'];
+
+          $query = "SELECT * FROM words_in_lists WHERE list_name = " . "'" . $somequery . "'";
 
           $statement = $db->prepare($query);
           $statement->execute();
@@ -157,7 +94,13 @@
           $statement->closecursor();
           if (count($results) == 0)
           {
-            echo 'Oh no! It seems like this vocab list is empty!!';
+            echo '<div class="row">
+                              <div class="col-0 col-md-3"></div>
+                              <div class="col-12 col-md-6" align="center">
+                                  <p>Oh no! It seems like this vocab list is empty!!</p>
+                              </div>
+                              <div class="col-0 col-md-3"></div>
+                      </div>';
           }
           else
           {
