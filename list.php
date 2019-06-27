@@ -54,8 +54,15 @@
 		<br />
 		<div class="row">
 			<div class="col-4 col-md-5"></div>
-			<div class="col-3 col-md-1 left-arrow"><button class="mini-flash-btn" onclick="goLeft(this)"><i class="fa fa-angle-left"></button></i></div>
-			<div class="col-1 right-arrow"><button class="mini-flash-btn" onclick="goRight(this)"><i class="fa fa-angle-right"></button></i></div>
+<!-- 			<div class="col-3 col-md-1 left-arrow"><button class="mini-flash-btn" onclick="goLeft(this)"><i class="fa fa-angle-left"></button></i></div>
+			<div class="col-1 right-arrow"><button class="mini-flash-btn" onclick="goRight(this)"><i class="fa fa-angle-right"></button></i></div> -->
+      <form method="post" action="">
+<!--         <input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus">
+        <button type="submit" onclick="search()"><i class="fa fa-search"></i></button> -->
+        <div class="col-3 col-md-1 left-arrow"><button class="mini-flash-btn" name="next" onclick="goLeft(this)"><i class="fa fa-angle-left"></button></i></div>
+        <div class="col-1 right-arrow"><button class="mini-flash-btn" name="previous" onclick="goRight(this)"><i class="fa fa-angle-right"></button></i></div>
+      </form>
+
 
 			<div class="col-2 col-md-2"><a href="card.html"><i class="fa fa-expand"></a></i></div>
 			<div class="col-2 col-md-3"></div>
@@ -110,7 +117,7 @@
               echo '<div class="row">
                               <div class="col-0 col-md-3"></div>
                               <div class="col-12 col-md-6" align="center">
-                                  <div class="box"><span class="box-txt">'. $result['keb'] . '</span></div>
+                                  <div class="box"><span class="box-txt">'. $result['gloss_def'] . '</span></div>
                               </div>
                               <div class="col-0 col-md-3"></div>
                       </div>';
@@ -118,7 +125,18 @@
             echo '</tbody></table>';
           }
         }
-     ?>
+    ?>
+    <? PHP
+      function next()
+      {
+
+        }
+      }
+      function previous()
+      {
+
+      }
+    ?>
 
 </div>
 
