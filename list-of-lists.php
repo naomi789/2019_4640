@@ -174,7 +174,7 @@
               foreach ($results as $result)
               {
                 echo '<div class="box">
-                  <a class="list_name" href="list.php&listname=' . $result['list_name'] . '">'
+                  <a class="list_name" href="list.php?listname=' . $result['list_name'] . '">'
                     . $result['list_name'] .
                     '</a>
                 </div>';
