@@ -41,8 +41,13 @@
     <div class="row" id="new-list-input-row">
       <div class="col-0 col-md-2"></div>
       <div class="col-12 col-md-8" align="center">
-        <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input class="box-txt name-input-box" id="list-name-input"></input>
-         <button onclick="submitNewList()">Create</button></div>
+          <form method="post" action="">
+            <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input name="newlistname" class="box-txt name-input-box" id="list-name-input"></input>
+            </div>
+            <!-- <input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus"> -->
+            <button type="submit" onclick="submitNewList()">Create</button>
+          </form>
+          
       </div>
       <div class="col-0 col-md-2"></div>
     </div>
@@ -52,107 +57,17 @@
       <div class="col-0 col-md-2"></div>
       <div class="col-12 col-md-8" align="center">
         <button onclick="newList()" class="box" id="new-list-box">Create new list</button>
+        <div id="results">
+            <!-- this is where js inserts the results -->
       </div>
       <div class="col-0 col-md-2"></div> 
     </div>
-    <!--List rows-->
-<!--  
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">TOEFL Exam Prep</span></a></div>
-      </div>
-      <div class="third-child col-1 col-md-2">
-        <button class="delete-button" onclick="deleteList(this)">
-            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-        </button>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div>
 
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N1 Prep</span></a></div>
-      </div>
-      <div class="third-child col-1 col-md-2">
-        <button class="delete-button" onclick="deleteList(this)">
-            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-        </button>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div>
-    
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">My favorite words</span></a></div>
-      </div>
-      <div class="third-child col-1 col-md-2">
-        <button class="delete-button" onclick="deleteList(this)">
-            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-        </button>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div>
-
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N2 Prep</span></a></div>
-      </div>
-      <div class="third-child col-1 col-md-2">
-        <button class="delete-button" onclick="deleteList(this)">
-            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-        </button>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div>
-
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N3 Prep</span></a></div>
-      </div>
-      <div class="third-child col-1 col-md-2">
-        <button class="delete-button" onclick="deleteList(this)">
-            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-        </button>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div>
-
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N4 Prep</span></a></div>
-      </div>
-      <div class="third-child col-1 col-md-2">
-        <button class="delete-button" onclick="deleteList(this)">
-            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-        </button>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div>
-
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-        <div class="box"><a style="vertical-align: middle; display: table-cell; color: black;" href="list.html"><span class="box-txt">JPLT N5 Prep</span></a></div>
-      </div>
-      <div class="third-child col-1 col-md-2">
-        <button class="delete-button" onclick="deleteList(this)">
-            <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-        </button>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div> -->
 
     <div class="row list-row">
       <div class="col-0 col-md-2"></div>
       <div class="second-child col-11 col-md-8" align="center">
       <?php
-          // require('connect-db.php');
           function loadLists()
           {
             require('connect-db.php');
@@ -185,6 +100,22 @@
           }
           loadLists();
         ?>
+                    <?php
+              function newlist()
+              {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST')
+                {
+                  require('connect-db.php');
+                  $newlistname = $_POST['newlistname'];
+                  $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA');";
+                  $statement = $db->prepare($query);
+                  $statement->execute();
+                  $results = $statement->fetchAll();
+                  $statement->closecursor();
+                }
+              }
+              newlist();
+            ?>
       </div>
       <div class="fourth-child col-1 col-md-2"></div>
     </div>
