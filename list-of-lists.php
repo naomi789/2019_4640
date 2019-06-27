@@ -21,10 +21,7 @@
         <div class="header">
           <a href="/" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
           <div class="header-right">
-            <!-- <a href="#login">Login</a>
-                    <a href="#signup">Sign up</a> -->
-            <a href="index.html">Dictionary</a>
-            <!-- <a href="#" class="fa fa-bars"><span></span></a> -->
+            <a href="index.php">Dictionary</a>
           </div>
         </div>
       </div>
