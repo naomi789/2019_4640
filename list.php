@@ -54,11 +54,7 @@
 		<br />
 		<div class="row">
 			<div class="col-4 col-md-5"></div>
-<!-- 			<div class="col-3 col-md-1 left-arrow"><button class="mini-flash-btn" onclick="goLeft(this)"><i class="fa fa-angle-left"></button></i></div>
-			<div class="col-1 right-arrow"><button class="mini-flash-btn" onclick="goRight(this)"><i class="fa fa-angle-right"></button></i></div> -->
       <form method="get" action="">
-<!--         <input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus">
-        <button type="submit" onclick="search()"><i class="fa fa-search"></i></button> -->
         <div class="col-3 col-md-1 left-arrow"><button class="mini-flash-btn" name="previous_word"><i class="fa fa-angle-left"></button></i></div>
         <div class="col-1 right-arrow"><button class="mini-flash-btn" name="next_word"><i class="fa fa-angle-right"></button></i></div>
       </form>
