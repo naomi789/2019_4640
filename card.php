@@ -35,37 +35,100 @@
         <div align="center">
           <!-- INDEX CARD -->
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-            <div class="card" id="flashcard" onclick="clickCard()">
+            <form method="post">
+              <div class="card" name="flipcard" id="flashcard" onclick="clickCard()">
               <!-- front content -->
               難しい
-
             </div>
+            </form>
           </div>
           <!-- DIRECTIONS -->
           <div class="directions">Tap card to see back<i class="fa fa-arrow-right"></i></div>
-          <!-- BUTTONS -->
-          <div id="both_buttons">
-            <input type="button" class="correct button" value="I knew this word" onclick="reportAnswer(true)">
-            <input type="button" class="incorrect button" value="I didn't know this word" onclick="reportAnswer(false)">
+          <!-- BUTTONS ( action="")-->
+          <form method="post">
+            <div id="both_buttons">
+            <input type="button" name="correct" class="correct button" value="I knew this word">
+            <input type="button" name="incorrect" class="incorrect button" value="I didn't know this word">
           </div>
+          </form> 
         </div>
       </div>
       <?php
-        session_start();
-        $listname = $_SESSION['listname'];
-        $all_words = $_SESSION['all_words']; 
-        $current_word = $_SESSION['current_word']; // an array
+        require('connect-db.php');
+        function reportAnswer()
+        {
+          if ($_SERVER['REQUEST_METHOD'] === 'POST')
+          {
+            if (isset($_POST['correct']))
+            {
+              $correct = True; 
+              storeAnswer($correct);
+            }
+            if (isset($_POST['incorrect']))
+            {
+              $correct = False; 
+              storeAnswer($correct);
+            }
+            if (isset($_POST['flipcard']))
+            {
+              $_SESSION['starttime'] = date("H:i:s");
+            }
+          }
+        }
+        function storeAnswer($correct)
+        {
+          if(isset( $_COOKIE['email']))
+          {
+            session_start();
+            require('connect-db.php');
+            $email = $_COOKIE['email'];
+            $listname = $_SESSION['listname'];
+            $all_words = $_SESSION['all_words']; 
+            $current_word = $_SESSION['current_word']; // an array
+            $date = date('m/d/Y');
+            $endtime = date("H:i:s");
+            $starttime = $_SESSION['starttime'];
+            $time_thinking = $endtime - $starttime;  
+            $ent_seq = $current_word['ent_seq'];
+            $query = "INSERT IGNORE INTO user_performance (time_date, time_thinking, list_name, correct, ent_seq, email) VALUES(:date, :time_thinking, :listname, :correct, :ent_seq, :email);"
+            //'".$date."','".$time_thinking.",'".$listname.",'".$correct.",'".$ent_seq.",'".$email."
+            $statement = $db->prepare($query);
+            $statement->bindValue(':date',$date);
+            $statement->bindValue(':time_thinking',$time_thinking);
+            $statement->bindValue(':listname',$listname);
+            $statement->bindValue(':correct',$correct);
+            $statement->bindValue(':ent_seq',$ent_seq);
+            $statement->bindValue(':email',$email);
+            $statement->execute();
+            $statement->closecursor();
+          }
+        }
+        
         // check and see if the user is logged in or not
         // foreach ($all_words as $one_word)
         // {
         //   echo $one_word['gloss_def'];
         // }
 
-        function reportAnswer(correct) 
+        // function reportAnswer(correct) {}
+        // echo time();
+        
+        //only record data if user is logged in 
+        if ($email == NULL)
         {
-          //only record data if user is logged in 
+          return;
         }
+        else
+        {
+          // $time_date
+          // 4time_thinking
+          // list_name NVARCHAR(100),
+          // correct 
+          // ent_seq
+          // email
+          // 
 
+        }
       ?>
 
       <div class="col-0 col-md-2"></div>
@@ -74,3 +137,4 @@
 </body>
 
 </html>
+
