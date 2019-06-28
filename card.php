@@ -38,6 +38,7 @@
             <div class="card" id="flashcard" onclick="clickCard()">
               <!-- front content -->
               難しい
+
             </div>
           </div>
           <!-- DIRECTIONS -->
@@ -49,7 +50,28 @@
           </div>
         </div>
       </div>
+      <?php
+        session_start();
+        $listname = $_SESSION['listname'];
+        $all_words = $_SESSION['all_words']; 
+        $current_word = $_SESSION['current_word']; // an array
+        // foreach ($all_words as $one_word)
+        // {
+        //   echo $one_word['gloss_def'];
+        // }
 
+        function reportAnswer(correct) 
+        {
+          if (correct) 
+          {
+            // use PHP to store this in DB so we know how often people are getting it wrong
+          } else 
+          {
+            // use PHP to store this in DB so we know how often people are getting it wrong
+          }
+        }
+
+      ?>
 
       <div class="col-0 col-md-2"></div>
     </div>
