@@ -37,12 +37,10 @@
 		</div>
 
 
-		<!--Row 3: Mini Flash Card-->
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-0 col-md-4"></div>
 			<div class="col-12 col-md-4 flip-container" ontouchstart="this.classList.toggle('hover');">
 				<div align="center" class="card" id="flashcard">
-				  <!-- front content -->
 				  難しい
 				</div>
 			</div>
@@ -50,7 +48,6 @@
 		</div>
 
 
-		<!--Row 4: Buttons and info for Mini Flash Card-->
 		<br />
 		<div class="row">
 			<div class="col-4 col-md-5"></div>
@@ -66,12 +63,12 @@
 
 
 
-		<!--Row 5: Separation Line-->
 		<div class="row">
 			<div class="col-0 col-md-2"></div>
 			<div class="col-12 col-md-8"><hr /></div>
 			<div class="col-0 col-md-2"></div>
 		</div>
+    -->
 
 
 
