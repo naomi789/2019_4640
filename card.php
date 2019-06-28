@@ -55,6 +55,7 @@
         $listname = $_SESSION['listname'];
         $all_words = $_SESSION['all_words']; 
         $current_word = $_SESSION['current_word']; // an array
+        // check and see if the user is logged in or not
         // foreach ($all_words as $one_word)
         // {
         //   echo $one_word['gloss_def'];
@@ -62,13 +63,7 @@
 
         function reportAnswer(correct) 
         {
-          if (correct) 
-          {
-            // use PHP to store this in DB so we know how often people are getting it wrong
-          } else 
-          {
-            // use PHP to store this in DB so we know how often people are getting it wrong
-          }
+          //only record data if user is logged in 
         }
 
       ?>
