@@ -100,6 +100,7 @@
       if (isset($_GET['listname']))
       {
         $somequery = $_GET['listname'];
+        $_SESSION['listname'] = $somequery; 
 
         $query = "SELECT * FROM words_in_lists WHERE list_name = " . "'" . $somequery . "' ORDER BY gloss_def;";
 
@@ -107,6 +108,7 @@
         $statement->execute();
         $all_words = $statement->fetchAll();
         $_SESSION['all_words'] = $all_words; 
+        $_SESSION['current_word'] = $all_words[0];
         $statement->closecursor();
       }
       else
