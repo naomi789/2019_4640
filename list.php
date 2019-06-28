@@ -19,7 +19,7 @@
           <div class="col-0 col-md-2"></div>
           <div class="col-12 col-md-8">
             <div class="header">
-                  <a href="/" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
+                  <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
                   <div class="header-right">
                     <a href="list-of-lists.php">My vocab lists</a>
 
@@ -77,7 +77,17 @@
 			<div class="col-11 col-md-9"></div>
 			<div class="col-1 col-md-3" id="edit-lists-div"><a class="edit-link" href="503-service-unavailable.html">EDIT</a></div>
 		</div> -->
-		<!--Row 7-->
+    <div class="row">
+      <div class="col-0 col-md-3"></div>
+      <div class="col-12 col-md-6" align="center">
+        <div class="box">
+          <span class="box-txt">
+            <a href="card.php">GO THROUGH FLASHCARDS<a/>
+          </span>
+        </div>
+      </div>
+      <div class="col-0 col-md-3"></div>
+    </div>'
 		<br />
 
     <?php
