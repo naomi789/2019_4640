@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-0 col-md-3"></div>
             <div class="col-12 col-md-6">
-<form>
+<form ngModel #form="ngModel" name="form">
     <div class="form-group">
       <label>First name: </label>
       <input       
@@ -104,9 +104,14 @@
             </div>
           </div>
           
-    <button class="btn btn-primary">Sign up!</button>
+    <button class="btn btn-primary" (click)="senddata(form.value)" >Sign up!</button>
 
 </form> 
+
+<div class="row">
+    responsedata = {{ responsedata | json }}
+</div>
+
 </div>
 
 <div class="col-0 col-md-3" ></div>
