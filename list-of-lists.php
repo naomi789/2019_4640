@@ -106,12 +106,20 @@
           require('connect-db.php');
           if(isset($_POST['newlistname']))
           {
+            //add new list
             $newlistname = $_POST['newlistname'];
             $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA');";
             $statement = $db->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll();
             $statement->closecursor();
+            //display new list
+            echo 
+            '<div class="box">
+              <a class="list_name" href="list.php?listname=' . $newlistname . '">'
+                . $newlistname .
+                '</a>
+            </div>';
           }
 
         }
