@@ -26,7 +26,7 @@
 				<div class="header">
 					<a href="/" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
 					<div class="header-right">
-						<a href="list-of-lists.html">My vocab lists</a>
+						<a href="list-of-lists.php">My vocab lists</a>
 					</div>
 				</div>
 
@@ -40,31 +40,28 @@
 					<!-- show search results -->
 					<div id="results">
 						<!-- this is where js inserts the results -->
-
 						<?php
 							require('connect-db.php');
 							function selectData()
 							{
 								if ($_SERVER['REQUEST_METHOD'] === 'POST')
 								{
-
-
 									$somequery = $_POST['value'];
 
 									// echo "query currently is '" . $somequery . "'";
-								  require('connect-db.php');
+								  	require('connect-db.php');
 
 									$query = "SELECT * FROM brief_result WHERE keb LIKE '$somequery%' OR reb LIKE '$somequery%'";
 									$query = "SELECT * FROM brief_result WHERE gloss_def LIKE '$somequery%'";
 
-								  $statement = $db->prepare($query);
+								  	$statement = $db->prepare($query);
 									// $statement->bindValue(':somequery', $somequery);
-								  $statement->execute();
+								  	$statement->execute();
 
-								  // fetchAll() returns an array for all of the rows in the result set
-								  $results = $statement->fetchAll();
-								  // closes the cursor and frees the connection to the server so other SQL statements may be issued
-								  $statement->closecursor();
+									// fetchAll() returns an array for all of the rows in the result set
+									$results = $statement->fetchAll();
+									// closes the cursor and frees the connection to the server so other SQL statements may be issued
+									$statement->closecursor();
 
 									if (count($results) == 0)
 									{
@@ -81,9 +78,9 @@
 										echo '</tbody></table>';
 									}
 
-							 }
+							 	}
 							}
-						selectData();
+							selectData();
 						?>
 					</div>
 				</div>
