@@ -36,7 +36,7 @@
           <!-- INDEX CARD -->
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <form method="post">
-              <div class="card" name="flipcard" id="flashcard">
+              <div class="card" name="flipcard" id="flashcard" onclick="clickCard()">
               <!-- front content  onclick="clickCard()"-->
               難しい
             </div>
@@ -91,6 +91,10 @@
             else
             {
               echo 'idk 3';
+            }
+            if (isset($_POST['flipcard']))
+            {
+
             }
           }
         }
