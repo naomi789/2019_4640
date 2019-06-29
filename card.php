@@ -36,8 +36,8 @@
           <!-- INDEX CARD -->
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
             <form method="post">
-              <div class="card" name="flipcard" id="flashcard" onclick="clickCard()">
-              <!-- front content -->
+              <div class="card" name="flipcard" id="flashcard">
+              <!-- front content  onclick="clickCard()"-->
               難しい
             </div>
             </form>
@@ -55,23 +55,42 @@
       </div>
       <?php
         require('connect-db.php');
+        // echo "hi";
         function reportAnswer()
         {
+          // echo "asdf";
           if ($_SERVER['REQUEST_METHOD'] === 'POST')
           {
+            echo "post";
             if (isset($_POST['correct']))
             {
               $correct = True; 
+              echo "stored correct";
+
               storeAnswer($correct);
+            }
+            else
+            {
+              echo 'idk 1';
             }
             if (isset($_POST['incorrect']))
             {
               $correct = False; 
+              echo "stored WRONG";
               storeAnswer($correct);
+              
+            }
+            else
+            {
+              echo 'idk 2';
             }
             if (isset($_POST['flipcard']))
             {
               $_SESSION['starttime'] = date("H:i:s");
+            }
+            else
+            {
+              echo 'idk 3';
             }
           }
         }
@@ -90,45 +109,10 @@
             $starttime = $_SESSION['starttime'];
             $time_thinking = $endtime - $starttime;  
             $ent_seq = $current_word['ent_seq'];
-            $query = "INSERT IGNORE INTO user_performance (time_date, time_thinking, list_name, correct, ent_seq, email) VALUES(:date, :time_thinking, :listname, :correct, :ent_seq, :email);"
-            //'".$date."','".$time_thinking.",'".$listname.",'".$correct.",'".$ent_seq.",'".$email."
-            $statement = $db->prepare($query);
-            $statement->bindValue(':date',$date);
-            $statement->bindValue(':time_thinking',$time_thinking);
-            $statement->bindValue(':listname',$listname);
-            $statement->bindValue(':correct',$correct);
-            $statement->bindValue(':ent_seq',$ent_seq);
-            $statement->bindValue(':email',$email);
-            $statement->execute();
-            $statement->closecursor();
+
           }
         }
-        
-        // check and see if the user is logged in or not
-        // foreach ($all_words as $one_word)
-        // {
-        //   echo $one_word['gloss_def'];
-        // }
-
-        // function reportAnswer(correct) {}
-        // echo time();
-        
-        //only record data if user is logged in 
-        if ($email == NULL)
-        {
-          return;
-        }
-        else
-        {
-          // $time_date
-          // 4time_thinking
-          // list_name NVARCHAR(100),
-          // correct 
-          // ent_seq
-          // email
-          // 
-
-        }
+        reportAnswer();
       ?>
 
       <div class="col-0 col-md-2"></div>
