@@ -68,64 +68,76 @@
       <div class="col-0 col-md-2"></div> 
     </div>
     <!--List rows-->
-    <?php
-    function loadLists()
-    {
-      require('connect-db.php');
-      $query = "SELECT * FROM list";
-      $statement = $db->prepare($query);
-      $statement->execute();
-      $results = $statement->fetchAll();
-      $statement->closecursor();
-      if (count($results) == 0)
+    <div class="row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8" align="center">
+      <?php
+      function loadLists()
       {
-        echo 'Oh no! We didn\'t find any vocabulary lists!!';
-      }
-      else
-      {
-        echo '<table><tbody>';
-        foreach ($results as $result)
+        require('connect-db.php');
+        $query = "SELECT * FROM list";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $results = $statement->fetchAll();
+        $statement->closecursor();
+        if (count($results) == 0)
         {
-          echo '<div class="box">
-            <a class="list_name" href="list.php?listname=' . $result['list_name'] . '">'
-              . $result['list_name'] .
-              '</a>
-          </div>';
+          echo 'Oh no! We didn\'t find any vocabulary lists!!';
         }
-        echo '</tbody></table>';
-      }
-
-    }
-    loadLists();
-    ?>
-    <?php
-      function newlist()
-      {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        else
         {
-          require('connect-db.php');
-          if(isset($_POST['newlistname']))
+          echo '<table><tbody>';
+          foreach ($results as $result)
           {
-            //add new list
-            $newlistname = $_POST['newlistname'];
-            $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA');";
-            $statement = $db->prepare($query);
-            $statement->execute();
-            $results = $statement->fetchAll();
-            $statement->closecursor();
-            //display new list
-            echo 
-            '<div class="box">
-              <a class="list_name" href="list.php?listname=' . $newlistname . '">'
-                . $newlistname .
-                '</a>
+            echo '
+            <div class="row"> 
+              <div class="box">
+                <a class="list_name" href="list.php?listname=' . $result['list_name'] . '">'
+                  . $result['list_name'] .
+                  '</a>
+              </div>
+              <button class="delete-button" onclick="deleteList(this)">
+                <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+              </button>
             </div>';
           }
-
+          echo '</tbody></table>';
         }
+
       }
-      newlist();
-    ?>
+      loadLists();
+      ?>
+      <?php
+        function newlist()
+        {
+          if ($_SERVER['REQUEST_METHOD'] == 'POST')
+          {
+            require('connect-db.php');
+            if(isset($_POST['newlistname']))
+            {
+              //add new list
+              $newlistname = $_POST['newlistname'];
+              $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA');";
+              $statement = $db->prepare($query);
+              $statement->execute();
+              $results = $statement->fetchAll();
+              $statement->closecursor();
+              //display new list
+              echo 
+              '<div class="box">
+                <a class="list_name" href="list.php?listname=' . $newlistname . '">'
+                  . $newlistname .
+                  '</a>
+              </div>';
+            }
+
+          }
+        }
+        newlist();
+      ?>
+      </div>
+    <div class="col-0 col-md-2"></div> 
+    </div>
 
 
 
