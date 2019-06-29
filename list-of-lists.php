@@ -123,12 +123,17 @@
               $results = $statement->fetchAll();
               $statement->closecursor();
               //display new list
-              echo 
-              '<div class="box">
+              echo '
+            <div class="row"> 
+              <div class="box">
                 <a class="list_name" href="list.php?listname=' . $newlistname . '">'
                   . $newlistname .
                   '</a>
-              </div>';
+              </div>
+              <button class="delete-button" onclick="deleteList(this)">
+                <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+              </button>
+            </div>';
             }
 
           }
