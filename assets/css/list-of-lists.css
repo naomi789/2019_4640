@@ -3,7 +3,7 @@
 .box{
     background-color: #F1F3F4;
     height: 42px;
-    width: 100%;
+    width: 85%;
     margin: 0 0 40px 0;
     display: table;
   }
@@ -47,17 +47,18 @@
 
 
 .delete-button{
-
   background-color: #BE0026;
   border: none;
   color: white;
   padding: 12px 16px;
   font-size: .7em;
   cursor: pointer;
+  border: 2px solid white;
+  height: 42px;
 }
 
 .delete-button:hover{
-  border: 1px solid white;
+  background-color: black;
 }
 
 .third-child{
