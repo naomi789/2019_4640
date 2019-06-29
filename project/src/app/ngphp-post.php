@@ -9,7 +9,7 @@ $request = json_decode($postdata, true);
 
 //$request->pwd = password_hash($request->pwd, md5);
 
-$request['pwd'] = 'abcdefg';
+$request['pwd'] = password_hash($request['pwd'], PASSWORD_DEFAULT);
 echo json_encode($request);
 
 // foreach ($request as $k => $v)

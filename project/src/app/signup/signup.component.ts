@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
     let params = JSON.stringify(data);
 
     this.http.post<SignUpInfo>('http://localhost/2019_4640/project/src/app/ngphp-post.php', data).subscribe((data) => {
-      console.log('Got data from backend', data);
+      console.log('Got data from backend');
       this.newUser = data;
       console.log(this.newUser);
     }, (error)=> {
