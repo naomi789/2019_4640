@@ -35,14 +35,14 @@ https://stackoverflow.com/questions/1789945/how-to-check-whether-a-string-contai
 1. Brock showed us that !isJapanese is not the same as !isJapaneseBool (the first is a function and the second is a boolean). I probably spend 30 minutes on that, entirely stuck!
 
 ## How to get mysql DB working:
-'''
+```
 sudo apt-get install mysql-server
 //struggled a ton to get various things working
 mysql -h 127.0.0.1 -P 3306 -u root
-'''
+```
 
 Then, in MySQL:
-'''
+```
 SOURCE create.sql; // this is in the mysql folder
 SOURCE insert.sql;
 USE main_db;
@@ -50,4 +50,4 @@ USE main_db;
 SHOW TABLES;
 DESCRIBE [insert table name here];
 SELECT * FROM [insert table name here];
-'''
+```
