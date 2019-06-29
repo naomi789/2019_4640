@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
   newUser = new SignUpInfo('', '', '', '');
 
 
-  senddata(data){
+  signUp(data){
     let params = JSON.stringify(data);
 
     this.http.post<SignUpInfo>('http://localhost/2019_4640/project/src/app/ngphp-post.php', data).subscribe((data) => {

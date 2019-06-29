@@ -115,7 +115,7 @@
             </div>
           </div>
           
-    <button [disabled]="!signUpForm.valid || !(confirmPwd.value==pwd.value)" class="btn btn-primary" (click)="senddata(signUpForm.value)" >Sign up!</button>
+    <button [disabled]="!signUpForm.valid || !(confirmPwd.value==pwd.value)" class="btn btn-primary" (click)="signUp(signUpForm.value)" >Sign up!</button>
 
 </form> 
 
