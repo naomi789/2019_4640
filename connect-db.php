@@ -23,8 +23,9 @@ $dsn = "mysql:host=$hostname;dbname=$dbname";
 try
 {
 //  $db = new PDO("mysql:host=$hostname;dbname=$dbname, $username, $password);
-   $db = new PDO($dsn, $username, $password);
-
+   // $db = new PDO($dsn, $username, $password);
+	$db = new PDO("mysql:host=127.0.0.1;dbname=main_db;charset=utf8", $username, $password);
+   // echo '大変申し訳ございません。';
    // dispaly a message to let us know that we are connected to the database
    // echo "<p>You are connected to the database</p>";
 }
