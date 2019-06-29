@@ -21,16 +21,22 @@
         <div class="header">
           <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
           <div class="header-right">
+            <!-- <a href="#login">Login</a>
+                    <a href="#signup">Sign up</a> -->
             <a href="index.php">Dictionary</a>
+            <!-- <a href="#" class="fa fa-bars"><span></span></a> -->
           </div>
         </div>
       </div>
       <div class="col-0 col-md-2"></div>
     </div>
-    <!--Row 2-->
+    <!--Row 2
+            <input type="text" class="line" placeholder="Type to filter">
+    -->
     <div class="row">
       <div class="col-0 col-md-2"></div>
-      <div class="col-3 col-md-3"></div>
+      <div class="col-3 col-md-3">
+      </div>
       <div class="col-6 col-md-4"></div>
       <div class="col-3 col-md-1" id="edit-lists-div"><button id="edit-button" onclick="editLists()">EDIT</button></div>
       <div class="col-0 col-md-2"></div>
@@ -41,13 +47,14 @@
     <div class="row" id="new-list-input-row">
       <div class="col-0 col-md-2"></div>
       <div class="col-12 col-md-8" align="center">
-          <form method="post" action="">
-            <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input name="newlistname" class="box-txt name-input-box" id="list-name-input"></input>
-            </div>
-            <!-- <input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus"> -->
-            <button type="submit" onclick="submitNewList()">Create</button>
-          </form>
-          
+        <!-- <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input class="box-txt name-input-box" id="list-name-input"></input>
+         <button onclick="submitNewList()">Create</button></div> -->
+      <form method="post" action="">
+        <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input name="newlistname" class="box-txt name-input-box" id="list-name-input"></input>
+        </div>
+        <!-- <input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus"> -->
+        <button type="submit" onclick="submitNewList()">Create</button>
+      </form>
       </div>
       <div class="col-0 col-md-2"></div>
     </div>
@@ -57,68 +64,60 @@
       <div class="col-0 col-md-2"></div>
       <div class="col-12 col-md-8" align="center">
         <button onclick="newList()" class="box" id="new-list-box">Create new list</button>
-        <div id="results">
-            <!-- this is where js inserts the results -->
       </div>
       <div class="col-0 col-md-2"></div> 
     </div>
+    <!--List rows-->
+    <?php
+    function loadLists()
+    {
+      require('connect-db.php');
+      $query = "SELECT * FROM list";
+      $statement = $db->prepare($query);
+      $statement->execute();
+      $results = $statement->fetchAll();
+      $statement->closecursor();
+      if (count($results) == 0)
+      {
+        echo 'Oh no! We didn\'t find any vocabulary lists!!';
+      }
+      else
+      {
+        echo '<table><tbody>';
+        foreach ($results as $result)
+        {
+          echo '<div class="box">
+            <a class="list_name" href="list.php?listname=' . $result['list_name'] . '">'
+              . $result['list_name'] .
+              '</a>
+          </div>';
+        }
+        echo '</tbody></table>';
+      }
 
-
-    <div class="row list-row">
-      <div class="col-0 col-md-2"></div>
-      <div class="second-child col-11 col-md-8" align="center">
-      <?php
-          function loadLists()
+    }
+    loadLists();
+    ?>
+    <?php
+      function newlist()
+      {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
+        {
+          require('connect-db.php');
+          if(isset($_POST['newlistname']))
           {
-            require('connect-db.php');
-            $query = "SELECT * FROM list";
+            $newlistname = $_POST['newlistname'];
+            $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA');";
             $statement = $db->prepare($query);
             $statement->execute();
             $results = $statement->fetchAll();
             $statement->closecursor();
-            if (count($results) == 0)
-            {
-              echo 'Oh no! We didn\'t find any vocabulary lists!!';
-            }
-            else
-            {
-              echo '<table><tbody>';
-              foreach ($results as $result)
-              {
-                echo '<div class="box">
-                  <a class="list_name" href="list.php?listname=' . $result['list_name'] . '">'
-                    . $result['list_name'] .
-                    '</a>
-                </div>';
-              }
-              echo '</tbody></table>';
-            }
-
-
-            //if ($_SERVER['REQUEST_METHOD'] === 'POST')
-
           }
-          loadLists();
-        ?>
-                    <?php
-              function newlist()
-              {
-                if ($_SERVER['REQUEST_METHOD'] === 'POST')
-                {
-                  require('connect-db.php');
-                  $newlistname = $_POST['newlistname'];
-                  $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA');";
-                  $statement = $db->prepare($query);
-                  $statement->execute();
-                  $results = $statement->fetchAll();
-                  $statement->closecursor();
-                }
-              }
-              newlist();
-            ?>
-      </div>
-      <div class="fourth-child col-1 col-md-2"></div>
-    </div>
+
+        }
+      }
+      newlist();
+    ?>
 
 
 

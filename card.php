@@ -35,7 +35,7 @@
         <div align="center">
           <!-- INDEX CARD -->
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-            <form method="post">
+            <form method="post" action="<?php $_SERVER['flipcard'] ?>">
               <div class="card" name="flipcard" id="flashcard" onclick="clickCard()">
               <!-- front content  onclick="clickCard()"-->
               難しい
@@ -47,19 +47,20 @@
           <!-- BUTTONS ( action="")-->
           <form method="post">
             <div id="both_buttons">
-            <input type="button" name="correct" class="correct button" value="I knew this word">
-            <input type="button" name="incorrect" class="incorrect button" value="I didn't know this word">
+            <input type="button" name="correct" action="<?php $_SERVER['correct'] ?>" class="correct button" value="I knew this word">
+            <input type="button" name="incorrect" class="incorrect button" value="I didn't know this word" action="<?php $_SERVER['incorrect'] ?>">
           </div>
           </form> 
         </div>
       </div>
       <?php
         require('connect-db.php');
+        session_start();
         // echo "hi";
         function reportAnswer()
         {
           // echo "asdf";
-          if ($_SERVER['REQUEST_METHOD'] === 'POST')
+          if ($_SERVER['REQUEST_METHOD'] == "POST")
           {
             echo "post";
             if (isset($_POST['correct']))
@@ -102,7 +103,6 @@
         {
           if(isset( $_COOKIE['email']))
           {
-            session_start();
             require('connect-db.php');
             $email = $_COOKIE['email'];
             $listname = $_SESSION['listname'];
