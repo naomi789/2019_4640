@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-0 col-md-3"></div>
             <div class="col-12 col-md-6">
-<form ngModel #form="ngModel" name="form">
+<form #signUpForm="ngForm" name="form">
     <div class="form-group">
       <label>First name: </label>
       <input       
@@ -28,7 +28,7 @@
         #name="ngModel"
         type="text" 
         class="form-control" 
-        (change)="log(name)"
+        autofocus
       /> 
       <div 
         class="alert-danger" 
@@ -73,7 +73,8 @@
         ngModel
         name="pwd"
         #pwd="ngModel"
-        type="text" 
+        type="password" 
+        id="pwd"
         class="form-control" 
       />
       <div class="alert-danger" *ngIf="pwd.touched && !pwd.valid" >
@@ -94,23 +95,29 @@
               ngModel
               name="confirmPwd"
               #confirmPwd="ngModel"
-              type="text" 
+              type="password" 
+              id="confirmpwd"
               class="form-control" 
             />
             <div class="alert-danger" *ngIf="confirmPwd.touched && !confirmPwd.valid" >
               <div *ngIf="confirmPwd.errors.required && pwd.valid" >
-                  Please retype your password
+              Please retype your password
               </div>
+            </div>
+            <div class="alert-danger" *ngIf="confirmPwd.touched && !(pwd.value==confirmPwd.value)">
+              Passwords do not match
+            </div>
+            <div *ngIf="pwd.touched && pwd.valid && (pwd.value==confirmPwd.value)">
+              <script>
+                md5 = require('js-md5');
+                document.getElementById("pwd").value = md5(document.getElementById("pwd").value);
+              </script>
             </div>
           </div>
           
-    <button class="btn btn-primary" (click)="senddata(form.value)" >Sign up!</button>
+    <button [disabled]="!signUpForm.valid || !(confirmPwd.value==pwd.value)" class="btn btn-primary" (click)="senddata(signUpForm.value)" >Sign up!</button>
 
 </form> 
-
-<div class="row">
-    responsedata = {{ responsedata | json }}
-</div>
 
 </div>
 

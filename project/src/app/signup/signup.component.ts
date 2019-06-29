@@ -18,14 +18,16 @@ export class SignupComponent implements OnInit {
     console.log(x);
   }
 
-  responsedata = {};   //this should should be instance of form, instantiated w/ empty strings
+  newUser = new SignUpInfo('', '', '', '');
+
 
   senddata(data){
     let params = JSON.stringify(data);
 
-    this.http.get('http://localhost/ngphp-get.php?str='+params).subscribe((data) => {
+    this.http.post<SignUpInfo>('http://localhost/2019_4640/project/src/app/ngphp-post.php', data).subscribe((data) => {
       console.log('Got data from backend', data);
-      this.responsedata = data;
+      this.newUser = data;
+      console.log(this.newUser);
     }, (error)=> {
       console.log('Error', error);
     })
