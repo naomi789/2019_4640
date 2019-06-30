@@ -8,6 +8,9 @@ $postdata = file_get_contents("php://input");
 $request = json_decode($postdata, true);
 
 $request['pwd'] = htmlspecialchars($request['pwd']);
+$request['name'] = htmlspecialchars($request['name']);
+$request['email'] = htmlspecialchars($request['email']);
+
 $request['pwd'] = $request['confirmPwd'] = password_hash($request['pwd'], PASSWORD_DEFAULT);
 
 $name = $request['name'];
