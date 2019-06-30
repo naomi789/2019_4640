@@ -14,113 +14,115 @@
         </div>
         <div class="col-0 col-md-2"></div>
         </div>
-        <div class="row">
-            <div class="col-0 col-md-3"></div>
-            <div class="col-12 col-md-6">
-<form #signUpForm="ngForm" name="form">
-    <div class="form-group">
-      <label>First name: </label>
-      <input       
-        required 
-        minlength="2"
-        ngModel 
-        name="name"
-        #name="ngModel"
-        type="text" 
-        class="form-control" 
-        autofocus
-      /> 
-      <div 
-        class="alert-danger" 
-        *ngIf="name.touched && !name.valid">
-          <div *ngIf="name.errors.required">
-              Please enter your first name
-          </div>
-          <div *ngIf="name.errors.minlength">
-              First name field should be {{name.errors.minlength.requiredLength}} or more characters
-          </div>
-      </div>
-    </div>
-  
-    <div class="form-group">
-      <label>Email address: </label>
-      <input 
-        required 
-        minlength="6"
-        ngModel
-        name="email"
-        #email="ngModel"
-        type="text" 
-        class="form-control" 
-      />
-    </div>
-    <div
-        class="alert-danger"
-        *ngIf="email.touched && !email.valid">
-            <div *ngIf="email.errors.required">
-                Please enter your email address
+    <div class="row">
+      <div class="col-0 col-md-3"></div>
+      <div class="col-12 col-md-6">
+      <form id="signUpForm" #signUpForm="ngForm" name="signUpForm" >
+          <div class="form-group">
+            <label>First name: </label>
+            <input       
+              required 
+              minlength="2"
+              ngModel 
+              name="name"
+              #name="ngModel"
+              type="text" 
+              class="form-control" 
+              autofocus
+            /> 
+            <div 
+              class="alert-danger" 
+              *ngIf="name.touched && !name.valid">
+                <div *ngIf="name.errors.required">
+                    Please enter your first name
+                </div>
+                <div *ngIf="name.errors.minlength">
+                    First name field should be {{name.errors.minlength.requiredLength}} or more characters
+                </div>
             </div>
-            <div *ngIf="email.errors.minlength">
-                Email address should be {{ email.errors.minlength.requiredLength }} or more characters
-            </div>
-    </div>
-  
-    <div class="form-group">
-      <label>Password: </label>
-      <input 
-        required
-        minlength="7"
-        ngModel
-        name="pwd"
-        #pwd="ngModel"
-        type="password" 
-        id="pwd"
-        class="form-control" 
-      />
-      <div class="alert-danger" *ngIf="pwd.touched && !pwd.valid" >
-        <div *ngIf="pwd.errors.required" >
-            Please enter a password
-        </div>
-        <div *ngIf="pwd.errors.minlength" >
-            Password must be {{ pwd.errors.minlength.requiredLength }} or more characters
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-            <label>Confirm password: </label>
+          </div>
+        
+          <div class="form-group">
+            <label>Email address: </label>
+            <input 
+              required 
+              minlength="6"
+              ngModel
+              name="email"
+              #email="ngModel"
+              type="text" 
+              class="form-control" 
+            />
+          </div>
+          <div
+              class="alert-danger"
+              *ngIf="email.touched && !email.valid">
+                  <div *ngIf="email.errors.required">
+                      Please enter your email address
+                  </div>
+                  <div *ngIf="email.errors.minlength">
+                      Email address should be {{ email.errors.minlength.requiredLength }} or more characters
+                  </div>
+          </div>
+        
+          <div class="form-group">
+            <label>Password: </label>
             <input 
               required
               minlength="7"
               ngModel
-              name="confirmPwd"
-              #confirmPwd="ngModel"
+              name="pwd"
+              #pwd="ngModel"
               type="password" 
-              id="confirmpwd"
+              id="pwd"
               class="form-control" 
             />
-            <div class="alert-danger" *ngIf="confirmPwd.touched && !confirmPwd.valid" >
-              <div *ngIf="confirmPwd.errors.required && pwd.valid" >
-              Please retype your password
+            <div class="alert-danger" *ngIf="pwd.touched && !pwd.valid" >
+              <div *ngIf="pwd.errors.required" >
+                  Please enter a password
+              </div>
+              <div *ngIf="pwd.errors.minlength" >
+                  Password must be {{ pwd.errors.minlength.requiredLength }} or more characters
               </div>
             </div>
-            <div class="alert-danger" *ngIf="confirmPwd.touched && !(pwd.value==confirmPwd.value)">
-              Passwords do not match
-            </div>
-            <div *ngIf="pwd.touched && pwd.valid && (pwd.value==confirmPwd.value)">
-              <script>
-                md5 = require('js-md5');
-                document.getElementById("pwd").value = md5(document.getElementById("pwd").value);
-              </script>
-            </div>
           </div>
-          
-    <button [disabled]="!signUpForm.valid || !(confirmPwd.value==pwd.value)" class="btn btn-primary" (click)="signUp(signUpForm.value)" >Sign up!</button>
 
-</form> 
+          <div class="form-group">
+                  <label>Confirm password: </label>
+                  <input 
+                    required
+                    minlength="7"
+                    ngModel
+                    name="confirmPwd"
+                    #confirmPwd="ngModel"
+                    type="password" 
+                    id="confirmpwd"
+                    class="form-control" 
+                  />
+                  <div class="alert-danger" *ngIf="confirmPwd.touched && !confirmPwd.valid" >
+                    <div *ngIf="confirmPwd.errors.required && pwd.valid" >
+                    Please retype your password
+                    </div>
+                  </div>
+                  <div class="alert-danger" *ngIf="confirmPwd.touched && !(pwd.value==confirmPwd.value)">
+                    Passwords do not match
+                  </div>
+                  <div *ngIf="pwd.touched && pwd.valid && (pwd.value==confirmPwd.value)">
+                    <script>
+                      md5 = require('js-md5');
+                      document.getElementById("pwd").value = md5(document.getElementById("pwd").value);
+                    </script>
+                  </div>
+                </div>
+                
+          <button [disabled]="!signUpForm.valid || !(confirmPwd.value==pwd.value)" class="btn btn-primary" (click)="signUp(signUpForm.value)" >Sign up!</button>
 
-</div>
+      </form> 
 
-<div class="col-0 col-md-3" ></div>
-</div>
+      <p id="alreadyExistsWarning" class="alert alert-danger" style="display: none">An account is already registered with this email address. Please <a href="sign-in.php">sign in</a>.</p>
+
+      </div>
+
+      <div class="col-0 col-md-3" ></div>
+    </div>
 </div>
