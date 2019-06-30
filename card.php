@@ -62,7 +62,6 @@
           </div>
           </form>
         </div>
-      </div>
       <?php
         require('connect-db.php');
         session_start();
@@ -132,7 +131,22 @@
         }
         reportAnswer();
       ?>
-
+      <footer>
+       <p>Designed and Maintained by: Naomi Johnson and Luke Wolpert
+       Copyright ©2019 <a href="index.php">JDict Flashcards.</a> All rights reserved</p>
+       <!-- <p>JWorld Flashcards is a free online
+         Japanese-English dictionary and Flashcard application.
+         It first went online in May 2019; this is version "2.0".
+       </p> -->
+       <p>JDict Flashcards uses the <a href="http://edrdg.org/jmdict/edict.html">
+         EDICT</a> files from the
+         Electronic Dictionary Research and Development Group at Monash University.
+         This project was started by Dr. Jim Breen.
+       </p>
+       <p> Please contact us at <a href="jdictflashcards@gmail.com">jdictflashcards@gmail.com</a> if you have any feature requests! If you find
+         JDict Flashcards helpful, please tell your friends!
+      </footer>
+      </div>
       <div class="col-0 col-md-2"></div>
     </div>
   </div>

@@ -1,43 +1,46 @@
 <!DOCTYPE html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lists</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/list.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lists</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/list.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body>
 
-	<div class="container">
-        <!--Row 1: Header-->
-      <div class="row">
-          <div class="col-0 col-md-2"></div>
-          <div class="col-12 col-md-8">
-            <div class="header">
-                  <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
-                  <div class="header-right">
-                    <a href="list-of-lists.php">My vocab lists</a>
+  <div class="container">
+    <!--Row 1: Header-->
+    <div class="row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-12 col-md-8">
+        <div class="header">
+          <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
+          <div class="header-right">
+            <a href="list-of-lists.php">My vocab lists</a>
 
-                  </div>
-            </div>
+          </div>
         </div>
-        <div class="col-0 col-md-2"></div>
-		</div>
+      </div>
+      <div class="col-0 col-md-2"></div>
+    </div>
 
-		<!--Row 2: List Name-->
-		<div class="row">
-			<div class="col-0 col-md-2"></div>
-			<div class="col-5 col-md-4" id="list-name"><?PHP $all_words ?></div>
-			<div class="col-7 col-md-6"></div>
-		</div>
+    <!--Row 2: List Name-->
+    <div class="row">
+      <div class="col-0 col-md-2"></div>
+      <div class="col-5 col-md-4" id="list-name">
+        <?PHP $all_words ?>
+      </div>
+      <div class="col-7 col-md-6"></div>
+    </div>
 
 
-		<!--<div class="row">
+    <!--<div class="row">
 			<div class="col-0 col-md-4"></div>
 			<div class="col-12 col-md-4 flip-container" ontouchstart="this.classList.toggle('hover');">
 				<div align="center" class="card" id="flashcard">
@@ -72,8 +75,8 @@
 
 
 
-		<!--Row 6: Edit button (for another day)-->
-<!-- 		<div class="row">
+    <!--Row 6: Edit button (for another day)-->
+    <!-- 		<div class="row">
 			<div class="col-11 col-md-9"></div>
 			<div class="col-1 col-md-3" id="edit-lists-div"><a class="edit-link" href="503-service-unavailable.html">EDIT</a></div>
 		</div> -->
@@ -82,13 +85,13 @@
       <div class="col-12 col-md-6" align="center">
         <div class="box">
           <span class="box-txt">
-            <a href="card.php">GO THROUGH FLASHCARDS<a/>
+            <a href="card.php">GO THROUGH FLASHCARDS<a />
           </span>
         </div>
       </div>
       <div class="col-0 col-md-3"></div>
-    </div>'
-		<br />
+    </div>
+    <br />
 
     <?php
     session_start();
@@ -144,8 +147,33 @@
     }
   ?>
 
-</div>
-
-<script type="text/javascript" src="js/card.js"></script>
+  </div>
+  <!-- </div> -->
+  <!-- </div> -->
+  <div class="container">
+    <div class="row">
+      <div class="col-0 col-md-3"></div>
+      <div class="col-12 col-md-6" align="center">
+        <footer>
+          <p>Designed and Maintained by: Naomi Johnson and Luke Wolpert
+            Copyright ©2019 <a href="index.php">JDict Flashcards.</a> All rights reserved</p>
+          <!-- <p>JWorld Flashcards is a free online
+       Japanese-English dictionary and Flashcard application.
+       It first went online in May 2019; this is version "2.0".
+     </p> -->
+          <p>JDict Flashcards uses the <a href="http://edrdg.org/jmdict/edict.html">
+              EDICT</a> files from the
+            Electronic Dictionary Research and Development Group at Monash University.
+            This project was started by Dr. Jim Breen.
+          </p>
+          <p> Please contact us at <a href="jdictflashcards@gmail.com">jdictflashcards@gmail.com</a> if you have any feature requests! If you find
+            JDict Flashcards helpful, please tell your friends!
+        </footer>
+      </div>
+      <div class="col-0 col-md-3"></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/card.js"></script>
 </body>
+
 </html>
