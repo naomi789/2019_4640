@@ -17,33 +17,38 @@ $name = $request['name'];
 $email = $request['email'];
 $pwd = $request['pwd'];
 
-echo json_encode($request);
+global $db;
 
-// function newUser(){
-//     require('../../../connect-db.php');
+function newUser(){
+    require('../../../connect-db.php');
     
-//     $select_query = "SELECT * FROM user WHERE email='$email';";
-//     $select_statement = $db->prepare($select_query);
-//     $select_statement.execute();
-//     $select_results = $select_statement->fetchAll();
-//     $select_statement->closecursor();
+    global $email;
+    global $db;
 
-//     if(count($select_results) == 0){
-//         $query = "INSERT INTO user VALUES('$name', '$email', '$pwd');";
-//         $statement = $db->prepare($query);
-//         $statement->execute();
-//         $results = $statement->fetchAll();
-//         $statement->closeCursor();
-//         echo json_encode($request);
-//     }
-//     else{
-//         $request['name'] = 'userAlreadyExists';
-//         echo json_encode($request);
-//     }
+    $select_query = "SELECT * FROM user WHERE email='$email';";
+    $select_statement = $db->prepare($select_query);
+    $select_statement.execute();
+    $select_results = $select_statement->fetchAll();
+    $select_statement->closecursor();
 
-// }
+    if(count($select_results) == 0){
+        $query = "INSERT INTO user VALUES('$name', '$email', '$pwd');";
+        $statement = $db->prepare($query);
+        $statement->execute();
+        $results = $statement->fetchAll();
+        $statement->closeCursor();
+        echo json_encode($request);
+    }
+    else{
+        $request['name'] = 'userAlreadyExists';
+        echo json_encode($request);
+    }
 
-// newUser();
+}
 
+newUser();
+
+
+echo json_encode($request);
 
 ?>
