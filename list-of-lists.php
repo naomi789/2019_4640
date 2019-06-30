@@ -131,7 +131,7 @@
                   '</a>
               </div>
               <form method="get">
-                <button class="delete-button" name="delete-' . $newlistname . '">
+                <button class="delete-button" name="delete">
                   <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
                 </button>
               </form>
