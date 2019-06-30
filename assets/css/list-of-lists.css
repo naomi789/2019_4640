@@ -1,73 +1,67 @@
-
 /* STUFF FROM LUKE */
-.box{
-    background-color: #F1F3F4;
-    height: 42px;
-    width: 100%;
-    margin: 0 0 40px 0;
-    display: table;
-  }
+.box {
+  background-color: #F1F3F4;
+  height: 42px;
+  width: 85%;
+  margin: 0 0 40px 0;
+  display: table;
+}
 
-  .box .box-txt{
-    display: table-cell;
-    vertical-align: middle;
-  }
+.box .box-txt {
+  display: table-cell;
+  vertical-align: middle;
+}
 
-  #edit-lists-div{
-    display: inline;
+#edit-lists-div {
+  display: inline;
+}
 
-
-  }
-
-
-#new-list-box{
+#new-list-box {
   background-color: #BBF1C4;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, .25);
 }
 
-#new-list-input-box{
+#new-list-input-box {
   background-color: white;
   border: 1px solid #BE0026;
 }
 
-.name-input-box{
+.name-input-box {
   margin-left: 3px;
   display: inline;
 }
 
-#new-list-input-row{
+#new-list-input-row {
   display: none;
 }
 
-#new-list-button-row{
+#new-list-button-row {
   display: none;
 }
 
-
-
-
-.delete-button{
-
+.delete-button {
   background-color: #BE0026;
   border: none;
   color: white;
   padding: 12px 16px;
   font-size: .7em;
   cursor: pointer;
+  border: 2px solid white;
+  height: 42px;
+  /*visibility: hidden;*/
 }
 
-.delete-button:hover{
-  border: 1px solid white;
+.delete-button:hover {
+  background-color: black;
 }
 
-.third-child{
+.third-child {
   display: none;
 }
 
-
 /* NEW ONES */
 /* for querying/filtering the lists */
-input.line{
+input.line {
   background: transparent;
   border: none;
   border-bottom: 1px solid #000000;
@@ -76,24 +70,24 @@ input.line{
   display: inline;
 }
 
-input.line::placeholder{
+input.line::placeholder {
   color: #797979;
   opacity: 1;
 }
 
-input.line:focus{
+input.line:focus {
   border-bottom: 1px solid #BBF1C4;
 }
 
 /* for the edit button */
-#edit-button{
+#edit-button {
   background-color: white;
   color: #00530B;
   border: none;
-  float:right;
+  float: right;
 }
 
-#edit-button:hover{
+#edit-button:hover {
   background-color: black;
   color: #FFFFFF;
 }

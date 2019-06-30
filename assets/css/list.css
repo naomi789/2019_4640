@@ -1,59 +1,53 @@
-.box{
-    background-color: white;
-    height: 34px;
-    width: 100%;
-    margin: 0 0 40px 0;
-    display: table;
-    border-style: solid;
-    border-width: thin;
-  }
+.box {
+  background-color: white;
+  height: 34px;
+  width: 100%;
+  margin: 0 0 40px 0;
+  display: table;
+  border-style: solid;
+  border-width: thin;
+}
 
+.box .box-txt {
+  display: table-cell;
+  vertical-align: middle;
+}
 
-  
-  .box .box-txt{
-    display: table-cell;
-    vertical-align: middle;
-  }
+#edit-lists-div {
+  display: inline;
+}
 
-  #edit-lists-div{
-    display: inline;
-      
-  }
-  
-  #edit-lists-div a:link{
-    color: #00530B;
-  }
-  
-  #edit-lists-div a:visited{
-    color: #00530B;
-  }
+#edit-lists-div a:link {
+  color: #00530B;
+}
 
+#edit-lists-div a:visited {
+  color: #00530B;
+}
 
-#list-name{
-    color: #00530B;
+#list-name {
+  color: #00530B;
 }
 
 .card {
-    font-size: 36px;
-    vertical-align: middle;
-    
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, .25);
-    height: 5em;
-    width: 100%;
-    background-image:
-      linear-gradient(180deg, white 3rem, #F0A4A4 calc(3rem), #F0A4A4 calc(3rem + 2px), transparent 1px),
-      repeating-linear-gradient(0deg, transparent, transparent 1.5rem, #DDD 1px, #DDD calc(1.5rem + 1px));
-  }
+  font-size: 36px;
+  vertical-align: middle;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, .25);
+  height: 5em;
+  width: 100%;
+  background-image:
+    linear-gradient(180deg, white 3rem, #F0A4A4 calc(3rem), #F0A4A4 calc(3rem + 2px), transparent 1px),
+    repeating-linear-gradient(0deg, transparent, transparent 1.5rem, #DDD 1px, #DDD calc(1.5rem + 1px));
+}
 
-  hr{
-      border-top: 1px solid #BE0026;
-  }
+hr {
+  border-top: 1px solid #BE0026;
+}
 
-  .left-arrow{
-    margin-right: 2.7em;
-    
-  }
+.left-arrow {
+  margin-right: 2.7em;
+}
 
-  .mini-flash-btn{
-    border: none;
-  }
+.mini-flash-btn {
+  border: none;
+}

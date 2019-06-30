@@ -6,53 +6,53 @@ function editLists(){
     new_list_input = document.getElementById("new-list-input-row");
     if(edit_button.innerHTML == "EDIT"){
         edit_button.innerHTML = "DONE";        
-        new_list_button.style.display = "flex";
-
-        secondChildren = document.getElementsByClassName("second-child");
-        for(i=0; i < secondChildren.length; i++){
-            let child = secondChildren[i];
-            child.classList.remove("col-11");
-            child.classList.remove("col-md-8");
-            child.classList.add("col-10");
-            child.classList.add("col-md-7");
-        }
-        thirdChildren = document.getElementsByClassName("third-child");
-        for(i=0; i < thirdChildren.length; i++){
-            let child = thirdChildren[i];
-            child.style.display = "block";
-        }
-        fourthChildren = document.getElementsByClassName("fourth-child");
-        for(i=0; i < fourthChildren.length; i++){
-            let child = fourthChildren[i];
-            child.classList.remove("col-md-2");
-            child.classList.add("col-md-1");
-        }
+        // new_list_button.style.display = "flex";
+        document.getElementByClassName("delete-button").style.visibility = "hidden";
+        // secondChildren = document.getElementsByClassName("second-child");
+        // for(i=0; i < secondChildren.length; i++){
+        //     let child = secondChildren[i];
+        //     child.classList.remove("col-11");
+        //     child.classList.remove("col-md-8");
+        //     child.classList.add("col-10");
+        //     child.classList.add("col-md-7");
+        // }
+        // thirdChildren = document.getElementsByClassName("third-child");
+        // for(i=0; i < thirdChildren.length; i++){
+        //     let child = thirdChildren[i];
+        //     child.style.display = "block";
+        // }
+        // fourthChildren = document.getElementsByClassName("fourth-child");
+        // for(i=0; i < fourthChildren.length; i++){
+        //     let child = fourthChildren[i];
+        //     child.classList.remove("col-md-2");
+        //     child.classList.add("col-md-1");
+        // }
 
     }
     else{
         hide(new_list_button);
         hide(new_list_input);
         edit_button.innerHTML = "EDIT";
-
-        secondChildren = document.getElementsByClassName("second-child");
-        for(i=0; i < secondChildren.length; i++){
-            let child = secondChildren[i];
-            child.classList.remove("col-10");
-            child.classList.remove("col-md-7");
-            child.classList.add("col-11");
-            child.classList.add("col-md-8");
-        }
-        thirdChildren = document.getElementsByClassName("third-child");
-        for(i=0; i < thirdChildren.length; i++){
-            let child = thirdChildren[i];
-            child.style.display = "none";
-        }
-        fourthChildren = document.getElementsByClassName("fourth-child");
-        for(i=0; i < fourthChildren.length; i++){
-            let child = fourthChildren[i];
-            child.classList.remove("col-md-1");
-            child.classList.add("col-md-2");
-        }
+        document.getElementByClassName("delete-button").style.visibility = "visible";
+        // secondChildren = document.getElementsByClassName("second-child");
+        // for(i=0; i < secondChildren.length; i++){
+        //     let child = secondChildren[i];
+        //     child.classList.remove("col-10");
+        //     child.classList.remove("col-md-7");
+        //     child.classList.add("col-11");
+        //     child.classList.add("col-md-8");
+        // }
+        // thirdChildren = document.getElementsByClassName("third-child");
+        // for(i=0; i < thirdChildren.length; i++){
+        //     let child = thirdChildren[i];
+        //     child.style.display = "none";
+        // }
+        // fourthChildren = document.getElementsByClassName("fourth-child");
+        // for(i=0; i < fourthChildren.length; i++){
+        //     let child = fourthChildren[i];
+        //     child.classList.remove("col-md-1");
+        //     child.classList.add("col-md-2");
+        // }
 
     }
 }
