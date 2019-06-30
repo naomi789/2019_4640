@@ -46,11 +46,11 @@
           <div class="directions">Tap card to see back<i class="fa fa-arrow-right"></i></div>
           <!-- BUTTONS ( action="")-->
           <form method="post">
-            <div id="both_buttons">
+            <div id="both_buttons" action="">
             <input type="button" name="correct" action="<?php $_SERVER['correct'] ?>" class="correct button" value="I knew this word">
             <input type="button" name="incorrect" class="incorrect button" value="I didn't know this word" action="<?php $_SERVER['incorrect'] ?>">
           </div>
-          </form> 
+          </form>
         </div>
       </div>
       <?php
@@ -65,7 +65,7 @@
             echo "post";
             if (isset($_POST['correct']))
             {
-              $correct = True; 
+              $correct = True;
               echo "stored correct";
 
               storeAnswer($correct);
@@ -76,10 +76,10 @@
             }
             if (isset($_POST['incorrect']))
             {
-              $correct = False; 
+              $correct = False;
               echo "stored WRONG";
               storeAnswer($correct);
-              
+
             }
             else
             {
@@ -103,15 +103,15 @@
         {
           if(isset( $_COOKIE['email']))
           {
-            require('connect-db.php');
+            // require('connect-db.php'); // that's already done above
             $email = $_COOKIE['email'];
             $listname = $_SESSION['listname'];
-            $all_words = $_SESSION['all_words']; 
+            $all_words = $_SESSION['all_words'];
             $current_word = $_SESSION['current_word']; // an array
             $date = date('m/d/Y');
             $endtime = date("H:i:s");
             $starttime = $_SESSION['starttime'];
-            $time_thinking = $endtime - $starttime;  
+            $time_thinking = $endtime - $starttime;
             $ent_seq = $current_word['ent_seq'];
 
           }
@@ -125,4 +125,3 @@
 </body>
 
 </html>
-
