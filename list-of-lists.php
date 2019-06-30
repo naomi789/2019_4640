@@ -23,6 +23,7 @@
           <div class="header-right">
             <a href="index.php">Dictionary</a>
             <?php
+            // setcookie('loggedIn', 'true', time()+10000);
               if(isset( $_COOKIE['loggedIn']))
               {
                 if($_COOKIE['loggedIn'] == 'true')
