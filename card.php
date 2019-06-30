@@ -27,7 +27,7 @@
           <div class="header-right">
             <!-- <a href="#login">Login</a>
   		    <a href="#signup">Sign up</a> -->
-            <a href="list-of-lists.html">My vocab lists</a>
+            <a href="list-of-lists.php">My vocab lists</a>
             <!-- <a href="#" class="fa fa-bars"><span></span></a> -->
           </div>
         </div>
@@ -38,10 +38,16 @@
             <form method="post" action="<?php $_SERVER['flipcard'] ?>">
               <div class="card" name="flipcard" id="flashcard" onclick="clickCard()">
               <!-- front content  onclick="clickCard()"-->
-              難しい
+              <?php
+               session_start();
+               $current_word = $_SESSION['current_word']['keb'];
+               echo $current_word;
+               ?>
+              <!--
               // TODO LUKE HELP PLEASE
               // that string needs to be dynamically updated
               // the back of it is written in card.js, and that also should probably be done in PHP
+              -->
             </div>
             </form>
           </div>

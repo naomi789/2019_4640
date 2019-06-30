@@ -131,7 +131,7 @@
                   '</a>
               </div>
               <form method="get">
-                <button class="delete-button" name="delete-' . $newlistname . '">
+                <button class="delete-button" name="delete">
                   <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
                 </button>
               </form>
@@ -152,14 +152,14 @@
               // I used name="delete-newlistname" above, so I'd need to do a substring, maybe?
               // if I name ALL the delete buttons "delete",
               // then I'd need to also add a field that says what list needs to be deleted
-              $deleting = $_POST['newlistname'];
-              $query = "DELETE FROM list_word WHERE list_name = " . "'" . $deleting . "';";
-              $query2 = "DELETE FROM list WHERE list_name = " . "'" . $deleting . "';";
+              $deleting = $_POST['delete'];
 
+              $query = "DELETE FROM list_word WHERE list_name = " . "'" . $deleting . "';";
               $statement = $db->prepare($query);
               $statement->execute();
               $statement->closecursor();
 
+              $query2 = "DELETE FROM list WHERE list_name = " . "'" . $deleting . "';";
               $statement = $db->prepare($query2);
               $statement->execute();
               $statement->closecursor();

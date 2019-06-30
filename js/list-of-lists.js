@@ -5,55 +5,23 @@ function editLists(){
     new_list_button = document.getElementById("new-list-button-row");
     new_list_input = document.getElementById("new-list-input-row");
     if(edit_button.innerHTML == "EDIT"){
-        edit_button.innerHTML = "DONE";        
-        // new_list_button.style.display = "flex";
-        document.getElementByClassName("delete-button").style.visibility = "hidden";
-        // secondChildren = document.getElementsByClassName("second-child");
-        // for(i=0; i < secondChildren.length; i++){
-        //     let child = secondChildren[i];
-        //     child.classList.remove("col-11");
-        //     child.classList.remove("col-md-8");
-        //     child.classList.add("col-10");
-        //     child.classList.add("col-md-7");
-        // }
-        // thirdChildren = document.getElementsByClassName("third-child");
-        // for(i=0; i < thirdChildren.length; i++){
-        //     let child = thirdChildren[i];
-        //     child.style.display = "block";
-        // }
-        // fourthChildren = document.getElementsByClassName("fourth-child");
-        // for(i=0; i < fourthChildren.length; i++){
-        //     let child = fourthChildren[i];
-        //     child.classList.remove("col-md-2");
-        //     child.classList.add("col-md-1");
-        // }
+        edit_button.innerHTML = "DONE";
+        all_delete_buttons = document.getElementsByClassName("delete-button");
+        for(i=0; i < all_delete_buttons.length; i++)
+        {
+          all_delete_buttons[i].style.visibility = "visible";
+        }
 
     }
     else{
         hide(new_list_button);
         hide(new_list_input);
         edit_button.innerHTML = "EDIT";
-        document.getElementByClassName("delete-button").style.visibility = "visible";
-        // secondChildren = document.getElementsByClassName("second-child");
-        // for(i=0; i < secondChildren.length; i++){
-        //     let child = secondChildren[i];
-        //     child.classList.remove("col-10");
-        //     child.classList.remove("col-md-7");
-        //     child.classList.add("col-11");
-        //     child.classList.add("col-md-8");
-        // }
-        // thirdChildren = document.getElementsByClassName("third-child");
-        // for(i=0; i < thirdChildren.length; i++){
-        //     let child = thirdChildren[i];
-        //     child.style.display = "none";
-        // }
-        // fourthChildren = document.getElementsByClassName("fourth-child");
-        // for(i=0; i < fourthChildren.length; i++){
-        //     let child = fourthChildren[i];
-        //     child.classList.remove("col-md-1");
-        //     child.classList.add("col-md-2");
-        // }
-
+        all_delete_buttons = document.getElementsByClassName("delete-button");
+        for(i=0; i < all_delete_buttons.length; i++)
+        {
+          all_delete_buttons[i].style.visibility = "hidden";
+        }
     }
 }
 
@@ -61,7 +29,7 @@ function editLists(){
 function newList(){
     new_list_button = document.getElementById("new-list-button-row");
     new_list_input = document.getElementById("new-list-input-row");
-    
+
     hide(new_list_button);
     new_list_input.style.display = "flex";
     inputField = document.getElementById("list-name-input");
@@ -131,5 +99,3 @@ function deleteList(element){
     let grandparent = parent.parentElement;
     grandparent.remove();
 }
-
-
