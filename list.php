@@ -100,14 +100,14 @@
       if (isset($_GET['listname']))
       {
         $somequery = $_GET['listname'];
-        $_SESSION['listname'] = $somequery; 
+        $_SESSION['listname'] = $somequery;
 
         $query = "SELECT * FROM words_in_lists WHERE list_name = " . "'" . $somequery . "' ORDER BY gloss_def;";
 
         $statement = $db->prepare($query);
         $statement->execute();
         $all_words = $statement->fetchAll();
-        $_SESSION['all_words'] = $all_words; 
+        $_SESSION['all_words'] = $all_words;
         $_SESSION['current_word'] = $all_words[0];
         $statement->closecursor();
       }
@@ -140,30 +140,7 @@
           }
           echo '</tbody></table>';
         }
-      
-    }
 
-    // decide if we need to show next/previous card
-    if ($_SERVER['REQUEST_METHOD'] === 'GET')
-    {
-      echo 'test';
-      if (isset($_GET['next_word']))
-      {
-        next_word($all_words);
-      }
-      if (isset($_GET['previous_word']))
-      {
-        previous_word($all_words);
-      }
-    }   
-
-    function next_word()
-    {
-      echo 'NEXT';
-    }
-    function previous_word()
-    {
-      echo 'PREVIOUS';
     }
   ?>
 
