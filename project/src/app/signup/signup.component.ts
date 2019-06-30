@@ -30,12 +30,19 @@ export class SignupComponent implements OnInit {
       this.newUser = data;
       if (this.newUser.name == 'userAlreadyExists'){
         //let theForm = this.newUser.signUpForm;
-        let theForm = document.getElementById("signUpForm");
-        let errorMessage = document.createTextNode("An account is already registered with this email address. Please <a href='sign-in.php'>sign in</a>.");
-        let errorElement = document.createElement("p");
-        errorElement.appendChild(errorMessage);
-        errorElement.setAttribute("class", "alert alert-danger");
-        theForm.appendChild(errorElement);  
+        // let theForm = document.getElementById("signUpForm");
+        // let link = document.createElement("a");
+        // link.setAttribute("href", "sign-in.php");
+        // link.innerHTML = "sign in.";
+        // let errorMessage = document.createTextNode("An account is already registered with this email address. Please ");
+        // let errorElement = document.createElement("p");
+        // errorElement.appendChild(errorMessage);
+        // errorElement.setAttribute("class", "alert alert-danger");
+        // link.setAttribute("class", "alert alert-danger error-sign-in-link");
+        // errorElement.appendChild(link);
+        // theForm.appendChild(errorElement);  
+        let warningTag = document.getElementById("alreadyExistsWarning");
+        warningTag.style.display = "block"; 
       }
       console.log(this.newUser);
     }, (error)=> {
