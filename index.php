@@ -78,6 +78,11 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 										{
 											echo '<tr class="one_word"><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
 											'</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
+											// TODO LUKE HELP PLEASE
+											// where our href links to a 503 page
+											// we instead should follow that tutorial with the button to a small modal
+											// this one shouldn't be too bad, there's just a heck ton of stuff
+											// that only works halfway rn
 										}
 										echo '</tbody></table>';
 									}

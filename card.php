@@ -39,6 +39,9 @@
               <div class="card" name="flipcard" id="flashcard" onclick="clickCard()">
               <!-- front content  onclick="clickCard()"-->
               難しい
+              // TODO LUKE HELP PLEASE
+              // that string needs to be dynamically updated
+              // the back of it is written in card.js, and that also should probably be done in PHP
             </div>
             </form>
           </div>
@@ -59,10 +62,11 @@
         // echo "hi";
         function reportAnswer()
         {
-          // echo "asdf";
+          // echo "asdf"; // I can reach this print, but
           if ($_SERVER['REQUEST_METHOD'] == "POST")
           {
-            echo "post";
+            echo "post"; // TODO LUKE HELP PLEASE
+            // I never reach this one and idk why
             if (isset($_POST['correct']))
             {
               $correct = True;
@@ -99,11 +103,14 @@
             }
           }
         }
-        function storeAnswer($correct)
+        function storeAnswer($correct) // this function is called in reportAnswer()
         {
           if(isset( $_COOKIE['email']))
           {
-            // require('connect-db.php'); // that's already done above
+            // TODO LUKE HELP PLEASE
+            // once you're using cookies in the signup/login
+            // and we add the lign of code equivalent to session_start()
+            // then this might start working
             $email = $_COOKIE['email'];
             $listname = $_SESSION['listname'];
             $all_words = $_SESSION['all_words'];
@@ -113,7 +120,7 @@
             $starttime = $_SESSION['starttime'];
             $time_thinking = $endtime - $starttime;
             $ent_seq = $current_word['ent_seq'];
-
+            // the code that belongs here I stuck inside of temp.php
           }
         }
         reportAnswer();
