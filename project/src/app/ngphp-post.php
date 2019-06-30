@@ -21,7 +21,7 @@ global $db;
 
 function newUser(){
     require('../../../connect-db.php');
-    
+
     global $email;
     global $db;
 
@@ -49,6 +49,7 @@ function newUser(){
 newUser();
 
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 echo json_encode($request);
 
