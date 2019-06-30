@@ -23,12 +23,7 @@ $pwd = $request['pwd'];
 global $db;
 
 function newUser(){
-<<<<<<< HEAD
         
-=======
-    require('../../../connect-db.php');
-
->>>>>>> 1fb6a8781cc4e0682c6de91b80f66f26012ac18d
     global $email;
     global $name;
     global $pwd;
@@ -59,14 +54,6 @@ function newUser(){
 newUser();
 
 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-echo json_encode($request);
->>>>>>> 1fb6a8781cc4e0682c6de91b80f66f26012ac18d
+
 
 ?>
-=======
-?>
->>>>>>> Stashed changes
