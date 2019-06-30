@@ -31,6 +31,19 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 					<a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
 					<div class="header-right">
 						<a href="list-of-lists.php">My vocab lists</a>
+						<?php
+							if(isset( $_COOKIE['loggedIn']))
+							{
+								if($_COOKIE['loggedIn'] == 'true')
+								{
+									echo '<a href="503-service-unavailable.html">Log out</a>';
+								}
+							}
+							else
+							{
+								echo '<a href="http://localhost:4200/">Sign up/login</a>';
+							}
+						 ?>
 					</div>
 				</div>
 

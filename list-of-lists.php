@@ -21,11 +21,20 @@
         <div class="header">
           <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
           <div class="header-right">
-            <!-- <a href="#login">Login</a>
-                    <a href="#signup">Sign up</a> -->
             <a href="index.php">Dictionary</a>
-            <!-- <a href="#" class="fa fa-bars"><span></span></a> -->
-          </div>
+            <?php
+              if(isset( $_COOKIE['loggedIn']))
+              {
+                if($_COOKIE['loggedIn'] == 'true')
+                {
+                  echo '<a href="503-service-unavailable.html">Log out</a>';
+                }
+              }
+              else
+              {
+                echo '<a href="http://localhost:4200/">Sign up/login</a>';
+              }
+             ?>          </div>
         </div>
       </div>
       <div class="col-0 col-md-2"></div>
