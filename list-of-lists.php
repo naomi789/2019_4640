@@ -65,7 +65,7 @@
       <div class="col-12 col-md-8" align="center">
         <button onclick="newList()" class="box" id="new-list-box">Create new list</button>
       </div>
-      <div class="col-0 col-md-2"></div> 
+      <div class="col-0 col-md-2"></div>
     </div>
     <!--List rows-->
     <div class="row">
@@ -90,7 +90,7 @@
           foreach ($results as $result)
           {
             echo '
-            <div class="row"> 
+            <div class="row">
               <div class="box">
                 <a class="list_name" href="list.php?listname=' . $result['list_name'] . '">'
                   . $result['list_name'] .
@@ -124,7 +124,7 @@
               $statement->closecursor();
               //display new list
               echo '
-            <div class="row"> 
+            <div class="row">
               <div class="box">
                 <a class="list_name" href="list.php?listname=' . $newlistname . '">'
                   . $newlistname .
@@ -134,7 +134,7 @@
                 <button class="delete-button" name="delete-' . $newlistname . '">
                   <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
                 </button>
-              </form> 
+              </form>
             </div>';
             }
 
@@ -146,9 +146,23 @@
           if ($_SERVER['REQUEST_METHOD'] == 'GET')
           {
             require('connect-db.php');
-            if(isset($_GET['newlistname']))
+            // TODO LUKE HELP PLEASE
+            if(isset($_GET['delete'])) // this line of code won't work.
             {
+              // I used name="delete-newlistname" above, so I'd need to do a substring, maybe?
+              // if I name ALL the delete buttons "delete",
+              // then I'd need to also add a field that says what list needs to be deleted
+              $deleting = $_POST['newlistname'];
+              $query = "DELETE FROM list_word WHERE list_name = " . "'" . $deleting . "';";
+              $query2 = "DELETE FROM list WHERE list_name = " . "'" . $deleting . "';";
 
+              $statement = $db->prepare($query);
+              $statement->execute();
+              $statement->closecursor();
+
+              $statement = $db->prepare($query2);
+              $statement->execute();
+              $statement->closecursor();
             }
           }
         }
@@ -156,7 +170,7 @@
       ?>
 
       </div>
-    <div class="col-0 col-md-2"></div> 
+    <div class="col-0 col-md-2"></div>
     </div>
 
 
