@@ -48,6 +48,7 @@
   cursor: pointer;
   border: 2px solid white;
   height: 42px;
+  /*visibility: hidden;*/
 }
 
 .delete-button:hover {

@@ -96,7 +96,7 @@
                   . $result['list_name'] .
                   '</a>
               </div>
-              <button class="delete-button" onclick="deleteList(this)">
+              <button class="delete-button">
                 <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
               </button>
             </div>';
@@ -130,16 +130,31 @@
                   . $newlistname .
                   '</a>
               </div>
-              <button class="delete-button" onclick="deleteList(this)">
-                <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-              </button>
+              <form method="get">
+                <button class="delete-button" name="delete-' . $newlistname . '">
+                  <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+                </button>
+              </form> 
             </div>';
             }
 
           }
         }
         newlist();
+        function deleteList()
+        {
+          if ($_SERVER['REQUEST_METHOD'] == 'GET')
+          {
+            require('connect-db.php');
+            if(isset($_GET['newlistname']))
+            {
+
+            }
+          }
+        }
+        deleteList();
       ?>
+
       </div>
     <div class="col-0 col-md-2"></div> 
     </div>
