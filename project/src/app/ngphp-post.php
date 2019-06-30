@@ -49,6 +49,10 @@ function newUser(){
 newUser();
 
 
+<<<<<<< Updated upstream
 echo json_encode($request);
 
 ?>
+=======
+?>
+>>>>>>> Stashed changes

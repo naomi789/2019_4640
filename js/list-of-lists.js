@@ -5,9 +5,10 @@ function editLists(){
     new_list_button = document.getElementById("new-list-button-row");
     new_list_input = document.getElementById("new-list-input-row");
     if(edit_button.innerHTML == "EDIT"){
-        edit_button.innerHTML = "DONE";        
+        edit_button.innerHTML = "DONE";
+        console.log("now done");
         // new_list_button.style.display = "flex";
-        document.getElementByClassName("delete-button").style.visibility = "hidden";
+        document.getElementsByClassName("delete-button").style.visibility = "hidden";
         // secondChildren = document.getElementsByClassName("second-child");
         // for(i=0; i < secondChildren.length; i++){
         //     let child = secondChildren[i];
@@ -33,7 +34,8 @@ function editLists(){
         hide(new_list_button);
         hide(new_list_input);
         edit_button.innerHTML = "EDIT";
-        document.getElementByClassName("delete-button").style.visibility = "visible";
+        console.log("now editing");
+        document.getElementsByClassName("delete-button").style.visibility = "visible";
         // secondChildren = document.getElementsByClassName("second-child");
         // for(i=0; i < secondChildren.length; i++){
         //     let child = secondChildren[i];
@@ -61,7 +63,7 @@ function editLists(){
 function newList(){
     new_list_button = document.getElementById("new-list-button-row");
     new_list_input = document.getElementById("new-list-input-row");
-    
+
     hide(new_list_button);
     new_list_input.style.display = "flex";
     inputField = document.getElementById("list-name-input");
@@ -131,5 +133,3 @@ function deleteList(element){
     let grandparent = parent.parentElement;
     grandparent.remove();
 }
-
-
