@@ -28,7 +28,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 			<div class="col-12 col-md-8">
 				<!-- header -->
 				<div class="header">
-					<a href="/" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
+					<a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
 					<div class="header-right">
 						<a href="list-of-lists.php">My vocab lists</a>
 					</div>
