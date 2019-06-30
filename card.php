@@ -40,7 +40,8 @@
               <!-- front content  onclick="clickCard()"-->
               <?php
                session_start();
-               $current_word = $_SESSION['current_word']['keb'];
+               // in the future it'd be nice if people could direction of FC
+               $current_word = $_SESSION['current_word']['gloss_def'];
                echo $current_word;
                ?>
               <!--
