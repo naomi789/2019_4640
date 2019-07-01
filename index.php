@@ -22,9 +22,17 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 
 <body>
 	<?php
+	// setcookie('loggedIn', 'true', time()-1, '/');
+	// unset($_COOKIE['loggedIn']);
 	// if(!isset($_COOKIE['loggedIn'])){
 	// 	setcookie('loggedIn', 'false', time()+604800, '/');		
 	// }
+		if($_SERVER['REQUEST_METHOD'] == 'GET'){
+			if (isset($_GET['loggedIn'])){
+				setcookie('loggedIn', 'true', time()+10000, '/');
+				header('Location: http://localhost/2019_4640/index.php');
+			}
+		}
 	?>
 	<div class="container">
 
@@ -41,12 +49,14 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 							{
 								if($_COOKIE['loggedIn'] == 'true')
 								{
-									echo '<a href="503-service-unavailable.html">Log out</a>';
+									echo '<a href="logout.php">Log out</a>';
 								}
-							}
-							else
-							{
-								echo '<a href="http://localhost:4200/">Sign up/login</a>';
+							
+								else
+								{
+									echo '<a href="http://localhost:4200/">Sign up</a>';
+									echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
+								}
 							}
 						 ?>
 					</div>
