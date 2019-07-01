@@ -64,20 +64,21 @@
           <!-- DIRECTIONS -->
           <div class="directions">Tap card to see back<i class="fa fa-arrow-right"></i></div>
           <!-- BUTTONS ( action="")-->
-          <form method="post">
-            <div id="both_buttons" action="">
-            <input type="button" name="correct" action="<?php $_SERVER['correct'] ?>" class="correct button" value="I knew this word">
-            <input type="button" name="incorrect" class="incorrect button" value="I didn't know this word" action="<?php $_SERVER['incorrect'] ?>">
+          <form method="post" action="<?php $_SERVER['PHP_SELF'] ?>">
+            <div id="both_buttons">
+            <button type="submit" name="correct" class="correct button" value="I knew this word">
+            <button type="submit" name="incorrect" class="incorrect button" value="I didn't know this word">
           </div>
           </form>
         </div>
       <?php
         require('connect-db.php');
-        session_start();
-        // echo "hi";
+        echo "hi";
         function reportAnswer()
         {
-          // echo "asdf"; // I can reach this print, but
+          echo "asdf"; // I can reach this print, but
+          echo $_SERVER['REQUEST_METHOD'];
+          echo var_dump($_POST);
           if ($_SERVER['REQUEST_METHOD'] == "POST")
           {
             echo "post"; // TODO LUKE HELP PLEASE
