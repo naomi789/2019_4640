@@ -11,5 +11,3 @@ CREATE TABLE IF NOT EXISTS user_performance(
 );
 
 ALTER TABLE user_performance CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
-ALTER TABLE user_performance ADD FOREIGN KEY (ent_seq) REFERENCES JMdict(ent_seq);
