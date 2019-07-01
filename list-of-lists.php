@@ -22,7 +22,12 @@
           <div class="header-right">
             <a href="index.php">Dictionary</a>
             <?php
-            // setcookie('loggedIn', 'true', time()+10000);
+              setcookie('loggedIn', 'true', time()-10000);
+              unset($_COOKIE['loggedIn']);
+              // if(!isset($_COOKIE['loggedIn'])){
+              //   setcookie('loggedIn', 'true', time()+10000);
+              //   header('Location: list-of-lists.php');
+              // }
               if(isset( $_COOKIE['loggedIn']))
               {
                 if($_COOKIE['loggedIn'] == 'true')

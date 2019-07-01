@@ -13,8 +13,8 @@ $request['pwd'] = htmlspecialchars($request['pwd']);
 $request['name'] = htmlspecialchars($request['name']);
 $request['email'] = htmlspecialchars($request['email']);
 
-$request['pwd'] = $request['confirmPwd'] = password_hash($request['pwd'], PASSWORD_DEFAULT);
-$request['pwd'] = htmlspecialchars($request['pwd']);
+//$request['pwd'] = $request['confirmPwd'] = password_hash($request['pwd'], PASSWORD_DEFAULT);
+//$request['pwd'] = htmlspecialchars($request['pwd']);
 
 $name = $request['name'];
 $email = $request['email'];
@@ -43,7 +43,8 @@ function newUser(){
         $results = $statement->fetchAll();
         $statement->closeCursor();
 
-        setcookie('loggedIn', 'true', time()+120, '/');
+        //for some reason this doesn't set a cookie
+        setcookie('loggedIn', 'true', time()+120, '/') or die('unable to create cookie');
 
         echo json_encode($request);
     }
