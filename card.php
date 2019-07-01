@@ -13,8 +13,11 @@
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-
-<body>
+<?php
+  session_start();
+  $_SESSION['starttime'] = date("H:i:s");
+ ?>
+ <body onload="startMyTimer()">
   <div class="container">
     <div class="row">
       <div class="col-0 col-md-2"></div>
@@ -44,22 +47,14 @@
         <div align="center">
           <!-- INDEX CARD -->
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-            <form method="post" action="<?php $_SERVER['flipcard'] ?>">
-              <div class="card" name="flipcard" id="flashcard" onclick="clickCard()">
-              <!-- front content  onclick="clickCard()"-->
-              <?php
-               session_start();
-               // in the future it'd be nice if people could direction of FC
-               $current_word = $_SESSION['current_word']['gloss_def'];
-               echo $current_word;
-               ?>
-              <!--
-              // TODO LUKE HELP PLEASE
-              // that string needs to be dynamically updated
-              // the back of it is written in card.js, and that also should probably be done in PHP
-              -->
-            </div>
-            </form>
+            <div class="card" id="flashcard" onclick="clickCard()">
+            <!-- front content -->
+            <?php
+             // in the future it'd be nice if people could change the direction of FC
+             $current_word = $_SESSION['current_word']['gloss_def'];
+             echo $current_word;
+             ?>
+           </div>
           </div>
           <!-- DIRECTIONS -->
           <div class="directions">Tap card to see back<i class="fa fa-arrow-right"></i></div>
@@ -73,70 +68,61 @@
         </div>
       <?php
         require('connect-db.php');
-        echo "hi";
         function reportAnswer()
         {
-          echo "asdf"; // I can reach this print, but
-          echo $_SERVER['REQUEST_METHOD'];
-          echo var_dump($_POST);
           if ($_SERVER['REQUEST_METHOD'] == "POST")
           {
-            echo "post"; // TODO LUKE HELP PLEASE
-            // I never reach this one and idk why
             if (isset($_POST['correct']))
             {
               $correct = True;
-              echo "stored correct";
-
               storeAnswer($correct);
-            }
-            else
-            {
-              echo 'idk 1';
+              // echo "stored correct";
             }
             if (isset($_POST['incorrect']))
             {
               $correct = False;
-              echo "stored WRONG";
               storeAnswer($correct);
-
-            }
-            else
-            {
-              echo 'idk 2';
-            }
-            if (isset($_POST['flipcard']))
-            {
-              $_SESSION['starttime'] = date("H:i:s");
-            }
-            else
-            {
-              echo 'idk 3';
-            }
-            if (isset($_POST['flipcard']))
-            {
-
+              // echo "stored WRONG";
             }
           }
         }
         function storeAnswer($correct) // this function is called in reportAnswer()
         {
+          global $db;
+          // i know this is cheating:
+          $_COOKIE['email'] = 'test@test.com';
+          echo 'set cookie to: '. $_COOKIE['email'];
           if(isset( $_COOKIE['email']))
           {
-            // TODO LUKE HELP PLEASE
-            // once you're using cookies in the signup/login
-            // and we add the lign of code equivalent to session_start()
-            // then this might start working
             $email = $_COOKIE['email'];
             $listname = $_SESSION['listname'];
-            $all_words = $_SESSION['all_words'];
+            $all_words = $_SESSION['all_words']; // I'll need to reach for the next word
             $current_word = $_SESSION['current_word']; // an array
-            $date = date('m/d/Y');
-            $endtime = date("H:i:s");
-            $starttime = $_SESSION['starttime'];
-            $time_thinking = $endtime - $starttime;
+            $mydate = date('m/d/Y');
+            // TODO FIX THIS LATER
+            $endtime = new DateTime(date("H:i:s"));
+
+            $starttime = new DateTime($_SESSION['starttime']);
+
+            $since_start = date_diff($endtime, $starttime);
+            $time_thinking = $since_start->format('%s second');
+
+            // echo $time_thinking;
+            // $time_thinking = date("H:i:s");
             $ent_seq = $current_word['ent_seq'];
+            // echo $email . $listname . $date . $time_thinking . $ent_seq;
             // the code that belongs here I stuck inside of temp.php
+            $query = "INSERT INTO user_performance (time_date, time_thinking, list_name, correct, ent_seq, email) VALUES(:mydate, :time_thinking, :listname, :correct, :ent_seq, :email);";
+            /////////'".$date."','".$time_thinking.",'".$listname.",'".$correct.",'".$ent_seq.",'".$email."
+            $statement = $db->prepare($query);
+            $statement->bindValue(':mydate',$mydate);
+            $statement->bindValue(':time_thinking',$time_thinking);
+            $statement->bindValue(':listname',$listname);
+            $statement->bindValue(':correct',$correct);
+            $statement->bindValue(':ent_seq',$ent_seq);
+            $statement->bindValue(':email',$email);
+            $statement->execute();
+            $statement->closecursor();
           }
         }
         reportAnswer();
