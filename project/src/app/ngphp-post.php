@@ -22,6 +22,10 @@ $pwd = $request['pwd'];
 
 global $db;
 
+// setcookie('loggedIn', 'true', time()+1200, '/') or die('unable to create cookie');
+
+include("../../../test.php");
+
 function newUser(){
         
     global $email;
@@ -44,7 +48,7 @@ function newUser(){
         $statement->closeCursor();
 
         //for some reason this doesn't set a cookie
-        setcookie('loggedIn', 'true', time()+120, '/') or die('unable to create cookie');
+        // setcookie('loggedIn', 'true', time()+1200, '/') or die('unable to create cookie');
 
         echo json_encode($request);
     }
