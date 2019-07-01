@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
   <div class="container">
     <!--Row 1-->
     <div class="row">

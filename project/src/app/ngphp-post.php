@@ -42,6 +42,9 @@ function newUser(){
         $statement->execute();
         $results = $statement->fetchAll();
         $statement->closeCursor();
+
+        setcookie('loggedIn', 'true', time()+120, '/');
+
         echo json_encode($request);
     }
     else{
