@@ -13,8 +13,8 @@ $request['pwd'] = htmlspecialchars($request['pwd']);
 $request['name'] = htmlspecialchars($request['name']);
 $request['email'] = htmlspecialchars($request['email']);
 
-//$request['pwd'] = $request['confirmPwd'] = password_hash($request['pwd'], PASSWORD_DEFAULT);
-//$request['pwd'] = htmlspecialchars($request['pwd']);
+$request['pwd'] = $request['confirmPwd'] = password_hash($request['pwd'], PASSWORD_DEFAULT);
+$request['pwd'] = htmlspecialchars($request['pwd']);
 
 $name = $request['name'];
 $email = $request['email'];
