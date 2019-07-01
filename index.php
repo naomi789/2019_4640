@@ -21,34 +21,16 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 </head>
 
 <body>
+	<?php
+	// if(!isset($_COOKIE['loggedIn'])){
+	// 	setcookie('loggedIn', 'false', time()+604800, '/');		
+	// }
+	?>
 	<div class="container">
-
-
-
-
-	<div class="row">
-			<div class="col-0 col-md-2"></div>
-			<div class="col-12 col-md-8">
-	<?php 
-	
-	
-		
-	if( isset($_COOKIE['loggedIn']) ){?>
-				<h1>LOGGED IN</h1>
-			<?php } ?>
-	</div>
-	<div class="col-0 col-md-2"></div>
-	</div>
-
-
-
-
-
-
 
 		<div class="row">
 			<div class="col-0 col-md-2"></div>
-			<div class="col-12 col-md-8"/>
+			<div class="col-12 col-md-8">
 				<!-- header -->
 				<div class="header">
 					<a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
