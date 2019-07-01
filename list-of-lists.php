@@ -126,7 +126,7 @@
         {
           if ($_SERVER['REQUEST_METHOD'] == 'POST')
           {
-            require('connect-db.php');
+            global $db;
             if(isset($_POST['newlistname']))
             {
               //add new list
@@ -159,7 +159,7 @@
         {
           if ($_SERVER['REQUEST_METHOD'] == 'GET')
           {
-            require('connect-db.php');
+            global $db;
             // TODO LUKE HELP PLEASE
             if(isset($_GET['delete'])) // this line of code won't work.
             {
