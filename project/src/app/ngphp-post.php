@@ -22,9 +22,6 @@ $pwd = $request['pwd'];
 
 global $db;
 
-// setcookie('loggedIn', 'true', time()+1200, '/') or die('unable to create cookie');
-
-include("../../../test.php");
 
 function newUser(){
         

@@ -27,18 +27,20 @@
           <div class="header-right">
             <a href="list-of-lists.php">My vocab lists</a>
             <?php
-              if(isset( $_COOKIE['loggedIn']))
-              {
-                if($_COOKIE['loggedIn'] == 'true')
-                {
-                  echo '<a href="503-service-unavailable.html">Log out</a>';
-                }
-              }
-              else
-              {
-                echo '<a href="http://localhost:4200/">Sign up/login</a>';
-              }
-             ?>          </div>
+							if(isset( $_COOKIE['loggedIn']))
+							{
+								if($_COOKIE['loggedIn'] == 'true')
+								{
+									echo '<a href="logout.php">Log out</a>';
+								}
+							
+								else
+								{
+									echo '<a href="http://localhost:4200/">Sign up</a>';
+									echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
+								}
+							}
+						 ?>         </div>
         </div>
 
         <div align="center">
