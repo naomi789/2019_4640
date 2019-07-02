@@ -14,3 +14,8 @@ function reportAnswer(correct) {
     // use PHP to store this in DB so we know how often people are getting it wrong
   }
 }
+
+function startMyTimer() {
+  // $_SESSION['starttime'] = date("H:i:s");
+  
+}

@@ -59,7 +59,7 @@
       <div class="col-12 col-md-8" align="center">
         <!-- <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input class="box-txt name-input-box" id="list-name-input"></input>
          <button onclick="submitNewList()">Create</button></div> -->
-      <form method="post" action="">
+      <form method="post" action="<?php $_SERVER['PHP_SELF'] ?>">
         <div class="box" id="new-list-input-box"><label>Enter list name:  </label><input name="newlistname" class="box-txt name-input-box" id="list-name-input"></input>
         </div>
         <!-- <input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus"> -->
@@ -106,10 +106,13 @@
                   . $result['list_name'] .
                   '</a>
               </div>
-              <button class="delete-button">
-                <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
-              </button>
+              <form method="post" action="">
+                <button type="submit" class="delete-button" name="delete" value="' . $result['list_name'] . '">
+                  <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
+                </button>
+              </form>
             </div>';
+            //TODO: fix the above into a form
           }
           echo '</tbody></table>';
         }
@@ -122,7 +125,7 @@
         {
           if ($_SERVER['REQUEST_METHOD'] == 'POST')
           {
-            require('connect-db.php');
+            global $db;
             if(isset($_POST['newlistname']))
             {
               //add new list
@@ -140,8 +143,8 @@
                   . $newlistname .
                   '</a>
               </div>
-              <form method="get">
-                <button class="delete-button" name="delete">
+              <form method="post" action="<?php $_SERVER[\'PHP_SELF\'] ?>">
+                <button type="submit" class="delete-button" name="delete" value="' . $newlistname . '">
                   <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
                 </button>
               </form>
@@ -153,18 +156,28 @@
         newlist();
         function deleteList()
         {
-          if ($_SERVER['REQUEST_METHOD'] == 'GET')
+          require('connect-db.php');
+          global $db;
+          if ($_SERVER['REQUEST_METHOD'] == 'POST')
           {
-            require('connect-db.php');
-            // TODO LUKE HELP PLEASE
-            if(isset($_GET['delete'])) // this line of code won't work.
+            // echo 'idk2';
+
+
+            if(isset($_POST['delete'])) // this line of code won't work.
             {
+              // echo 'idk3';
               // I used name="delete-newlistname" above, so I'd need to do a substring, maybe?
               // if I name ALL the delete buttons "delete",
               // then I'd need to also add a field that says what list needs to be deleted
-              $deleting = $_POST['delete'];
+              $deleting = $_REQUEST['delete'];
+              $deleting = substr($deleting,0,strlen($deleting) - 1);
+              // var_dump($_REQUEST);
+              // echo 'trying to delete: "' . $deleting . '"';
 
               $query = "DELETE FROM list_word WHERE list_name = " . "'" . $deleting . "';";
+
+              // echo 'this is:[' . $query . ']not null??';
+              var_dump($db);
               $statement = $db->prepare($query);
               $statement->execute();
               $statement->closecursor();
