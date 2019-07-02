@@ -23,7 +23,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 <body>
 	<?php
 	// if(!isset($_COOKIE['loggedIn'])){
-	// 	setcookie('loggedIn', 'false', time()+604800, '/');		
+	// 	setcookie('loggedIn', 'false', time()+604800, '/');
 	// }
 	?>
 	<div class="container">
@@ -54,7 +54,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 
 				<!-- search bar and button -->
 				<div align="center">
-					<form method="post" action="">
+					<form method="post" action="<?php $_SERVER['PHP_SELF'] ?>">
 						<input type="search" name="value" id="search_box" placeholder="Type a word in English or Japanese.." autofocus="autofocus">
 						<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
 					</form>
