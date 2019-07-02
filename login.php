@@ -20,7 +20,7 @@
           <div class="col-0 col-md-2"></div>
           <div class="col-12 col-md-8">
             <div class="header">
-                  <a href="/" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
+                  <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
                   <div class="header-right">
                     <a href="list-of-lists.html">My vocab lists</a>
                     <a href="http://localhost:4200/">Sign up</a>
