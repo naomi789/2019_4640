@@ -111,7 +111,7 @@
                   '</a>
               </div>
               <form method="post" action="">
-                <button type="submit" class="delete-button" name="delete">
+                <button type="submit" class="delete-button" name="delete" value="' . $result['list_name'] . '">
                   <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
                 </button>
               </form>
@@ -148,7 +148,7 @@
                   '</a>
               </div>
               <form method="post" action="<?php $_SERVER[\'PHP_SELF\'] ?>">
-                <button type="submit" class="delete-button" name="delete">
+                <button type="submit" class="delete-button" name="delete" value="' . $newlistname . '">
                   <i style="vertical-align: middle;" class="fa fa-minus-circle"></i>
                 </button>
               </form>
@@ -160,22 +160,28 @@
         newlist();
         function deleteList()
         {
-          // echo 'idk1';
+          require('connect-db.php');
+          global $db;
           if ($_SERVER['REQUEST_METHOD'] == 'POST')
           {
             // echo 'idk2';
-            global $db;
-            // TODO LUKE HELP PLEASE
+
+
             if(isset($_POST['delete'])) // this line of code won't work.
             {
               // echo 'idk3';
               // I used name="delete-newlistname" above, so I'd need to do a substring, maybe?
               // if I name ALL the delete buttons "delete",
               // then I'd need to also add a field that says what list needs to be deleted
-              $deleting = $_POST['delete'];
-              echo 'trying to delete: "' . $deleting . '"';
+              $deleting = $_REQUEST['delete'];
+              $deleting = substr($deleting,0,strlen($deleting) - 1);
+              // var_dump($_REQUEST);
+              // echo 'trying to delete: "' . $deleting . '"';
 
               $query = "DELETE FROM list_word WHERE list_name = " . "'" . $deleting . "';";
+
+              // echo 'this is:[' . $query . ']not null??';
+              var_dump($db);
               $statement = $db->prepare($query);
               $statement->execute();
               $statement->closecursor();
