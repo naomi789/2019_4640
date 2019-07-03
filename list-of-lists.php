@@ -128,10 +128,14 @@
             global $db;
             if(isset($_POST['newlistname']))
             {
-              //add new list
-              $list_creator = $_COOKIE['email'];
+              $list_creator = 'NULL';
+              if(isset($_COOKIE['email']))
+              {
+                $list_creator = $_COOKIE['email'];
+              }
               $newlistname = $_POST['newlistname'];
-              $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA', " . $list_creator . ");";
+              $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA', '" . $list_creator . "');";
+              // echo $query;
               $statement = $db->prepare($query);
               $statement->execute();
               $results = $statement->fetchAll();

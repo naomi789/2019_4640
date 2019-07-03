@@ -1,4 +1,4 @@
-const hide = element => {element.style.display = "none";}
+// const hide = element => {element.style.display = "none";}
 
 function editLists(){
     edit_button = document.getElementById("edit-button");
