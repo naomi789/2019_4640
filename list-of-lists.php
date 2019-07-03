@@ -28,7 +28,7 @@
 								{
 									echo '<a href="logout.php">Log out</a>';
 								}
-							
+
 								else
 								{
 									echo '<a href="http://localhost:4200/">Sign up</a>';
@@ -129,8 +129,9 @@
             if(isset($_POST['newlistname']))
             {
               //add new list
+              $list_creator = $_COOKIE['email'];
               $newlistname = $_POST['newlistname'];
-              $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA');";
+              $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA', " . $list_creator . ");";
               $statement = $db->prepare($query);
               $statement->execute();
               $results = $statement->fetchAll();
