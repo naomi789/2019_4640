@@ -32,11 +32,11 @@
 }
 
 #new-list-input-row {
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 #new-list-button-row {
-  /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .delete-button {

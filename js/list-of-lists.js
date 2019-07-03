@@ -11,8 +11,8 @@ function editLists(){
         {
           all_delete_buttons[i].style.visibility = "visible";
         }
-        // document.getElementById("new-list-button-row").style.visibility = "visible";
-        // document.getElementById("new-list-input-row").style.visibility = "visible";
+        document.getElementById("new-list-button-row").style.visibility = "visible";
+        document.getElementById("new-list-input-row").style.visibility = "visible";
 }
     else{
         // hide(new_list_button);
@@ -23,8 +23,8 @@ function editLists(){
         {
           all_delete_buttons[i].style.visibility = "hidden";
         }
-        // document.getElementById("new-list-button-row").style.visibility = "hidden";
-        // document.getElementById("new-list-input-row").style.visibility = "hidden";
+        document.getElementById("new-list-button-row").style.visibility = "hidden";
+        document.getElementById("new-list-input-row").style.visibility = "hidden";
 
     }
 }
