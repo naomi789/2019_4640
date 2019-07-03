@@ -30,7 +30,7 @@
           <div class="header-right">
             <a href="list-of-lists.php">My vocab lists</a>
             <?php
-							if(isset( $_COOKIE['loggedIn']))
+            if($_COOKIE['loggedIn'] == 'true')
 							{
 								if($_COOKIE['loggedIn'] == 'true')
 								{
