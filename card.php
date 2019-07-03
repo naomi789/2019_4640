@@ -53,8 +53,7 @@
             <!-- front content -->
             <?php
              // in the future it'd be nice if people could change the direction of FC
-             $current_word = $_SESSION['current_word']['gloss_def'];
-             echo $current_word;
+             echo $_SESSION['current_word']['gloss_def'];
              ?>
            </div>
           </div>
@@ -87,6 +86,8 @@
               // echo "stored WRONG";
             }
             // then bring up the next card
+            $_SESSION['counter_curr_word'] = $_SESSION['counter_curr_word'] + 1;
+            $_SESSION['current_word'] = $_SESSION['all_words'][$_SESSION['counter_curr_word']];
           }
         }
         function storeAnswer($correct) // this function is called in reportAnswer()

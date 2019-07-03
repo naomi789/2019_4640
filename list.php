@@ -30,7 +30,7 @@
 								{
 									echo '<a href="logout.php">Log out</a>';
 								}
-							
+
 								else
 								{
 									echo '<a href="http://localhost:4200/">Sign up</a>';
@@ -136,6 +136,7 @@
         $all_words = $statement->fetchAll();
         $_SESSION['all_words'] = $all_words;
         $_SESSION['current_word'] = $all_words[0];
+        $_SESSION['counter_curr_word'] = 0;
         $statement->closecursor();
       }
       else
@@ -171,10 +172,10 @@
     }
   ?>
 
-  
+
   <!-- </div> -->
   <!-- </div> -->
-  
+
     <div class="row">
       <div class="col-0 col-md-2" ></div>
       <div class="col-12 col-md-8" align="center">
