@@ -110,7 +110,7 @@
       <div class="col-12 col-md-6" align="center">
         <div class="box">
           <span class="box-txt">
-            <a href="card.php">GO THROUGH FLASHCARDS<a />
+            <a href="card.php">GO THROUGH FLASHCARDS</a>
           </span>
         </div>
       </div>
@@ -176,8 +176,8 @@
   <!-- </div> -->
   
     <div class="row">
-      <div class="col-0 col-md-3" ></div>
-      <div class="col-12 col-md-6" align="center">
+      <div class="col-0 col-md-2" ></div>
+      <div class="col-12 col-md-8" align="center">
         <footer>
           <p>Designed and Maintained by: Naomi Johnson and Luke Wolpert
             Copyright ©2019 <a href="index.php">JDict Flashcards.</a> All rights reserved</p>
@@ -194,7 +194,7 @@
             JDict Flashcards helpful, please tell your friends!</p>
         </footer>
       </div>
-      <div class="col-0 col-md-3"></div>
+      <div class="col-0 col-md-2"></div>
     </div>
   </div>
   <script type="text/javascript" src="js/card.js"></script>
