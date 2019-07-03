@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
   <link rel="stylesheet" type="text/css" href="assets/css/cards.css" />
+  <script type="text/javascript" src="js/greeting.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -30,19 +31,31 @@
           <div class="header-right">
             <a href="list-of-lists.php">My vocab lists</a>
             <?php
-            if($_COOKIE['loggedIn'] == 'true')
-							{
-								if($_COOKIE['loggedIn'] == 'true')
-								{
-									echo '<a href="logout.php">Log out</a>';
-								}
-							}
-              else
+            if(isset($_COOKIE['loggedIn']))
+            {
+              if($_COOKIE['loggedIn'] == 'true')
+              {
+                echo '<a href="logout.php">Log out</a>';
+                ?>
+                  <div id="greeting">
+                    <button onclick="greetUser(<?php $_COOKIE['email'] ?>)">Greeting</button>
+                  </div>
+                <?php
+              }
+                else
               {
                 echo '<a href="http://localhost:4200/">Sign up</a>';
                 echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
               }
-						 ?>         </div>
+            }
+            
+            else
+            {
+              echo '<a href="http://localhost:4200/">Sign up</a>';
+              echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
+            }
+             ?>     
+                 </div>
         </div>
 
         <div align="center">

@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
   <link rel="stylesheet" type="text/css" href="assets/css/list-of-lists.css">
+  <script type="text/javascript" src="js/greeting.js"></script>
 </head>
 
 <body>
@@ -21,20 +22,39 @@
           <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
           <div class="header-right">
             <a href="index.php">Dictionary</a>
+            <?php echo $_COOKIE['email'] ?>
               <?php
-              if($_COOKIE['loggedIn'] == 'true')
-							{
-								if($_COOKIE['loggedIn'] == 'true')
-								{
-									echo '<a href="logout.php">Log out</a>';
-								}
-							}
+              if(isset($_COOKIE['loggedIn'])){
+                if($_COOKIE['loggedIn'] == 'true')
+                {
+                  
+                    ?>
+                  <div id="greeting">
+                    <a href="logout.php">Log out<a>
+                    <button onclick="greetUser(<?php echo $_COOKIE['email'] ?>)">Greeting</button>
+                  </div>
+                  <?php
+                  
+                }
+                  else
+                {
+                  ?>
+
+                  <a href="http://localhost:4200/">Sign up</a>
+                  <a href="http://localhost/2019_4640/login.php">Log in</a>
+                  <?php
+                }
+              }
               else
               {
-                echo '<a href="http://localhost:4200/">Sign up</a>';
-                echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
+                ?>
+
+                <a href="http://localhost:4200/">Sign up</a>
+                <a href="http://localhost/2019_4640/login.php">Log in</a>
+                <?php
               }
-						 ?>         </div>
+             ?>      
+                </div>
         </div>
       </div>
       <div class="col-0 col-md-2"></div>

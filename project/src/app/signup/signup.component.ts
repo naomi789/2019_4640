@@ -36,8 +36,8 @@ export class SignupComponent implements OnInit {
       else{
         //place session AND cookie information here?
         //redirect throws cors policy error - for some reason it won't work if placed in ngphp-post.php either
-        
-        window.location.href = "http://localhost/2019_4640/index.php?loggedIn=true";
+        let theURL = "http://localhost/2019_4640/index.php?loggedIn=true&email=" + this.newUser.email;
+        window.location.href = theURL;
       }
       console.log(this.newUser);
     }, (error)=> {

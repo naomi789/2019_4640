@@ -11,6 +11,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 	<meta name="keywords" content="japan, japanese, foreign langauge, study, dictionary, learning, quiz">
 	<script type="text/javascript" src="js/search.js" charset="utf-8"></script>
 	<script type="text/javascript" src="assets/data/medium_dict.json"></script>
+	<script type="text/javascript" src="js/greeting.js"></script>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>J Dict Flashcards</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -30,7 +31,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 		if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			if (isset($_GET['loggedIn'])){
 				setcookie('loggedIn', 'true', time()+10000, '/');
-				// setcookie('email', 'true', time()+10000, '/');
+				setcookie('email', $_GET['email'], time()+10000, '/');
 				header('Location: http://localhost/2019_4640/index.php');
 			}
 		}
@@ -46,19 +47,33 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 					<div class="header-right">
 						<a href="list-of-lists.php">My vocab lists</a>
 						<?php
-							if($_COOKIE['loggedIn'] == 'true')
+
+							if(isset($_COOKIE['loggedIn']))
 							{
 								if($_COOKIE['loggedIn'] == 'true')
 								{
 									echo '<a href="logout.php">Log out</a>';
+									?>
+										<div id="greeting">
+											<button onclick="greetUser(<?php $_COOKIE['email'] ?>)">Greeting</button>
+										</div>
+									<?php
+								}
+									else
+								{
+									echo '<a href="http://localhost:4200/">Sign up</a>';
+									echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
 								}
 							}
+							
 							else
 							{
 								echo '<a href="http://localhost:4200/">Sign up</a>';
 								echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
 							}
+						
 						 ?>
+						 
 					</div>
 				</div>
 
