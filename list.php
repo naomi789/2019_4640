@@ -171,12 +171,12 @@
     }
   ?>
 
-  </div>
+  
   <!-- </div> -->
   <!-- </div> -->
-  <div class="container">
+  
     <div class="row">
-      <div class="col-0 col-md-3"></div>
+      <div class="col-0 col-md-3" ></div>
       <div class="col-12 col-md-6" align="center">
         <footer>
           <p>Designed and Maintained by: Naomi Johnson and Luke Wolpert
@@ -191,7 +191,7 @@
             This project was started by Dr. Jim Breen.
           </p>
           <p> Please contact us at <a href="jdictflashcards@gmail.com">jdictflashcards@gmail.com</a> if you have any feature requests! If you find
-            JDict Flashcards helpful, please tell your friends!
+            JDict Flashcards helpful, please tell your friends!</p>
         </footer>
       </div>
       <div class="col-0 col-md-3"></div>
