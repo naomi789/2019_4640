@@ -36,7 +36,8 @@
 }
 
 #new-list-button-row {
-  display: none;
+  /* display: none; */
+  /* visibility: hidden; */
 }
 
 .delete-button {
