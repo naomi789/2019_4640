@@ -62,8 +62,8 @@
           <!-- BUTTONS ( action="")-->
           <form method="post" action="<?php $_SERVER['PHP_SELF'] ?>">
             <div id="both_buttons">
-            <button type="submit" name="correct" class="correct button" value="I knew this word">
-            <button type="submit" name="incorrect" class="incorrect button" value="I didn't know this word">
+            <button type="submit" name="correct" class="correct button" value="I knew this word">I knew this word</button>
+            <button type="submit" name="incorrect" class="incorrect button" value="I didn't know this word">I didn't know this word</button>
           </div>
           </form>
         </div>
