@@ -32,11 +32,10 @@
 }
 
 #new-list-input-row {
-  display: none;
+  /* visibility: hidden; */
 }
 
 #new-list-button-row {
-  /* display: none; */
   /* visibility: hidden; */
 }
 
