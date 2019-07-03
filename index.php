@@ -1,4 +1,5 @@
 <?php
+//BELOW CONTAINS THE CHANGES I MADE TO INDEX.PHP LAST NIGHT - I ADDED A CONDITIONAL SO THAT USERS CAN SEARCH FOR EMPTY STRING, I ADDED ID'S TO ROWS, AND ADDED AN ONCLICK ATTRIBUTE
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: *');
 header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
@@ -104,8 +105,9 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 										echo '<table><tbody>';
 										foreach ($results as $result)
 										{
-											echo '<tr class="one_word"><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
-											'</span></td><td class="add_vocab"><a href="503-service-unavailable.html"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
+											$id = "" . $result['gloss_ID'] . ", " . $result['ent_seq'] . "";
+											echo '<tr class="one_word" id='.$id.'><td class="keb"><span>' . $result['keb'] . '</span></td><td class="reb"><span>' . $result['reb'] . '</span></td><td class="gloss"><span>' . $result['gloss_def'] .
+											'</span></td><td class="add_vocab"><a onclick="listOptions('.$id.')"><i class="fa fa-plus-circle plus_sign"></i></a</td></tr>';
 											// TODO LUKE HELP PLEASE
 											// where our href links to a 503 page
 											// we instead should follow that tutorial with the button to a small modal

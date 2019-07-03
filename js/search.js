@@ -119,3 +119,11 @@ function isEnglish(query) {
     return false;
   }
 }
+
+function listOptions(id){
+  let row = document.getElementById(id);
+  let theLabel = document.createElement("select");
+  theLabel.setAttribute("for", "dropDown");
+  let dropDown = document.createElement("option");
+  
+}
