@@ -18,7 +18,7 @@
   session_start();
   $_SESSION['starttime'] = date("H:i:s");
  ?>
- <body onload="startMyTimer()">
+ <body>
   <div class="container">
     <div class="row">
       <div class="col-0 col-md-2"></div>
@@ -61,12 +61,19 @@
         <div align="center">
           <!-- INDEX CARD -->
           <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
-            <div class="card" id="flashcard" onclick="clickCard()">
+            <?php
+            // echo $_SESSION['current_word']['gloss_def'];
+            // echo $_SESSION['current_word'];
+            // echo $_SESSION['all_words'];
+            ?>
+            <?php $answer = $_SESSION['current_word']['keb'] . '\n' . $_SESSION['current_word']['reb'];?>
+            <div class="card" id="flashcard" onclick="clickCard('<?php echo $answer ?>')">
             <!-- front content -->
             <?php
              // in the future it'd be nice if people could change the direction of FC
-             echo $_SESSION['current_word']['gloss_def'];
+             // echo $_SESSION['current_word']['gloss_def'];
              ?>
+
            </div>
           </div>
           <!-- DIRECTIONS -->
