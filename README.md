@@ -52,11 +52,12 @@ DESCRIBE [insert table name here];
 SELECT * FROM [insert table name here];
 ```
 
-##Things that Naomi runs when her windows installation of MySQL has 2002 errors:
+##Things that Naomi runs when her windows installation of MySQL has 2002 errors (HY000 Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock'):
 ```
 sudo /etc/init.d/mysql stop
+sudo mkdir -p /var/run/mysqld
+sudo mkdir -p /var/run/mysqld_safe
+chown mysql:mysql /var/run/mysqld
 sudo mysqld_safe
 //switch to new terminal
-mkdir -p /var/run/mysqld_safe
-chwon mysql:mysql /var/run/mysqld
 ```

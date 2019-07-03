@@ -22,19 +22,18 @@
           <div class="header-right">
             <a href="index.php">Dictionary</a>
               <?php
-							if(isset( $_COOKIE['loggedIn']))
+              if($_COOKIE['loggedIn'] == 'true')
 							{
 								if($_COOKIE['loggedIn'] == 'true')
 								{
 									echo '<a href="logout.php">Log out</a>';
 								}
-
-								else
-								{
-									echo '<a href="http://localhost:4200/">Sign up</a>';
-									echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
-								}
 							}
+              else
+              {
+                echo '<a href="http://localhost:4200/">Sign up</a>';
+                echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
+              }
 						 ?>         </div>
         </div>
       </div>
@@ -82,9 +81,10 @@
       <div class="col-0 col-md-2"></div>
       <div class="col-12 col-md-8" align="center">
       <?php
+      require('connect-db.php');
       function loadLists()
       {
-        require('connect-db.php');
+        global $db;
         $query = "SELECT * FROM list";
         $statement = $db->prepare($query);
         $statement->execute();
@@ -128,10 +128,14 @@
             global $db;
             if(isset($_POST['newlistname']))
             {
-              //add new list
-              $list_creator = $_COOKIE['email'];
+              $list_creator = 'NULL';
+              if(isset($_COOKIE['email']))
+              {
+                $list_creator = $_COOKIE['email'];
+              }
               $newlistname = $_POST['newlistname'];
-              $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA', " . $list_creator . ");";
+              $query = "INSERT INTO list VALUES('" . $newlistname . " ','NA', '" . $list_creator . "');";
+              // echo $query;
               $statement = $db->prepare($query);
               $statement->execute();
               $results = $statement->fetchAll();
@@ -157,19 +161,15 @@
         newlist();
         function deleteList()
         {
-          require('connect-db.php');
-          global $db;
           if ($_SERVER['REQUEST_METHOD'] == 'POST')
           {
             // echo 'idk2';
 
 
-            if(isset($_POST['delete'])) // this line of code won't work.
+            if(isset($_POST['delete']))
             {
-              // echo 'idk3';
-              // I used name="delete-newlistname" above, so I'd need to do a substring, maybe?
-              // if I name ALL the delete buttons "delete",
-              // then I'd need to also add a field that says what list needs to be deleted
+              global $db;
+
               $deleting = $_REQUEST['delete'];
               $deleting = substr($deleting,0,strlen($deleting) - 1);
               // var_dump($_REQUEST);
@@ -178,7 +178,7 @@
               $query = "DELETE FROM list_word WHERE list_name = " . "'" . $deleting . "';";
 
               // echo 'this is:[' . $query . ']not null??';
-              var_dump($db);
+              // var_dump($db);
               $statement = $db->prepare($query);
               $statement->execute();
               $statement->closecursor();

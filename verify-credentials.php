@@ -25,6 +25,7 @@ function verify(){
 
     if(password_verify($pwd, $select_results[0]['pwd'])){
         setcookie('loggedIn', 'true', time()+604800, '/') or die('unable to create cookie');
+        setcookie('email', $email, time()+604800, '/') or die('unable to create cookie');
         header('Location: http://localhost/2019_4640/index.php');
     }
     else{

@@ -30,6 +30,7 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 		if($_SERVER['REQUEST_METHOD'] == 'GET'){
 			if (isset($_GET['loggedIn'])){
 				setcookie('loggedIn', 'true', time()+10000, '/');
+				// setcookie('email', 'true', time()+10000, '/');
 				header('Location: http://localhost/2019_4640/index.php');
 			}
 		}
@@ -45,18 +46,17 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 					<div class="header-right">
 						<a href="list-of-lists.php">My vocab lists</a>
 						<?php
-							if(isset( $_COOKIE['loggedIn']))
+							if($_COOKIE['loggedIn'] == 'true')
 							{
 								if($_COOKIE['loggedIn'] == 'true')
 								{
 									echo '<a href="logout.php">Log out</a>';
 								}
-							
-								else
-								{
-									echo '<a href="http://localhost:4200/">Sign up</a>';
-									echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
-								}
+							}
+							else
+							{
+								echo '<a href="http://localhost:4200/">Sign up</a>';
+								echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
 							}
 						 ?>
 					</div>
