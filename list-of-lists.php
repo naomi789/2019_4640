@@ -187,6 +187,7 @@
               $statement = $db->prepare($query2);
               $statement->execute();
               $statement->closecursor();
+              header('Location: http://localhost/2019_4640/list-of-lists.php');
             }
           }
         }

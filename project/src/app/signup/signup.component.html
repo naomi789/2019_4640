@@ -20,7 +20,8 @@
       <form id="signUpForm" #signUpForm="ngForm" name="signUpForm" >
           <div class="form-group">
             <label>First name: </label>
-            <input       
+            <input  
+              [ngClass]="{'everything-valid': (signUpForm.valid && name.touched && pwd.touched && email.touched && (confirmPwd.value==pwd.value))}"      
               required 
               minlength="2"
               ngModel 
@@ -45,6 +46,7 @@
           <div class="form-group">
             <label>Email address: </label>
             <input 
+              [ngClass]="{'everything-valid': (signUpForm.valid && name.touched && pwd.touched && email.touched && (confirmPwd.value==pwd.value))}" 
               required 
               minlength="6"
               ngModel
@@ -68,6 +70,7 @@
           <div class="form-group">
             <label>Password: </label>
             <input 
+              [ngClass]="{'everything-valid': (signUpForm.valid && name.touched && pwd.touched && email.touched && (confirmPwd.value==pwd.value))}" 
               required
               minlength="7"
               ngModel
@@ -89,7 +92,8 @@
 
           <div class="form-group">
                   <label>Confirm password: </label>
-                  <input 
+                  <input
+                    [ngClass]="{'everything-valid': (signUpForm.valid && name.touched && pwd.touched && email.touched && (confirmPwd.value==pwd.value))}"  
                     required
                     minlength="7"
                     ngModel
@@ -104,18 +108,15 @@
                     Please retype your password
                     </div>
                   </div>
-                  <div class="alert-danger" *ngIf="confirmPwd.touched && !(pwd.value==confirmPwd.value)">
-                    Passwords do not match
-                  </div>
-                  <div *ngIf="pwd.touched && pwd.valid && (pwd.value==confirmPwd.value)">
-                    <!-- <script>
-                      md5 = require('js-md5');
-                      document.getElementById("pwd").value = md5(document.getElementById("pwd").value);
-                    </script> -->
+                  <div class="alert-danger" *ngIf="confirmPwd.touched">
+                    <div [ngSwitch]="pwd.value">
+                      <div *ngSwitchCase="confirmPwd.value"><!--Do nothing--></div>
+                      <div *ngSwitchDefault>Passwords do not match</div>
+                    </div>
                   </div>
                 </div>
                 
-          <button [disabled]="!signUpForm.valid || !(confirmPwd.value==pwd.value)" class="btn btn-primary" (click)="signUp(signUpForm.value)" >Sign up!</button>
+          <button [ngStyle]="{'background-color': (!signUpForm.valid || !(confirmPwd.value==pwd.value)) ? '#BE0026' : 'blue' }"  [disabled]="!signUpForm.valid || !(confirmPwd.value==pwd.value)" class="btn btn-primary" (click)="signUp(signUpForm.value)" >Sign up!</button>
 
       </form> 
 
