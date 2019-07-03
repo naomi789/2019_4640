@@ -36,7 +36,7 @@
 								{
 									echo '<a href="logout.php">Log out</a>';
 								}
-							
+
 								else
 								{
 									echo '<a href="http://localhost:4200/">Sign up</a>';
@@ -86,6 +86,7 @@
               storeAnswer($correct);
               // echo "stored WRONG";
             }
+            // then bring up the next card
           }
         }
         function storeAnswer($correct) // this function is called in reportAnswer()
