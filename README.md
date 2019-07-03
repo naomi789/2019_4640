@@ -51,3 +51,12 @@ SHOW TABLES;
 DESCRIBE [insert table name here];
 SELECT * FROM [insert table name here];
 ```
+
+##Things that Naomi runs when her windows installation of MySQL has 2002 errors:
+```
+sudo /etc/init.d/mysql stop
+sudo mysqld_safe
+//switch to new terminal
+mkdir -p /var/run/mysqld_safe
+chwon mysql:mysql /var/run/mysqld
+```
