@@ -28,7 +28,7 @@ ALTER TABLE gloss_word CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_
 ALTER TABLE gloss_word CHANGE gloss_ID gloss_ID VARCHAR(36) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS list
-(list_name NVARCHAR(200) NOT NULL, list_description NVARCHAR(2000),
+(list_name NVARCHAR(200) NOT NULL, list_description NVARCHAR(2000), list_creator VARCHAR(30),
 CONSTRAINT PK_list PRIMARY KEY (list_name) );
 ALTER TABLE list CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ALTER TABLE list CHANGE list_name list_name VARCHAR(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
