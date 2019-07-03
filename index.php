@@ -51,12 +51,11 @@ header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Origin, Au
 								{
 									echo '<a href="logout.php">Log out</a>';
 								}
-							
-								else
-								{
-									echo '<a href="http://localhost:4200/">Sign up</a>';
-									echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
-								}
+							}
+							else
+							{
+								echo '<a href="http://localhost:4200/">Sign up</a>';
+								echo '<a href="http://localhost/2019_4640/login.php">Log in</a>';
 							}
 						 ?>
 					</div>
