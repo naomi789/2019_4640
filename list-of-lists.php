@@ -22,19 +22,19 @@
           <a href="index.php" class="logo"><img class="photo" src="images/logo.PNG" alt="JDict Japanese English Dictionary" height="100px"></a>
           <div class="header-right">
             <a href="index.php">Dictionary</a>
-            <?php echo $_COOKIE['email'] ?>
+            <?php //echo $_COOKIE['email'] ?>
               <?php
               if(isset($_COOKIE['loggedIn'])){
                 if($_COOKIE['loggedIn'] == 'true')
                 {
-                  
+
                     ?>
                   <div id="greeting">
                     <a href="logout.php">Log out<a>
                     <button onclick="greetUser(<?php echo $_COOKIE['email'] ?>)">Greeting</button>
                   </div>
                   <?php
-                  
+
                 }
                   else
                 {
@@ -53,7 +53,7 @@
                 <a href="http://localhost/2019_4640/login.php">Log in</a>
                 <?php
               }
-             ?>      
+             ?>
                 </div>
         </div>
       </div>
